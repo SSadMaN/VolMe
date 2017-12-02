@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/top_action_bar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="43dp"
         android:background="@color/colorPrimary"
         android:orientation="horizontal"
         tools:layout_editor_absoluteX="68dp"
@@ -24,42 +24,35 @@
             android:src="@drawable/two_clockwise_circular_rotating_arrows_circle"
             android:layout_weight="1"/>
 
-        <TextView
-            android:id="@+id/volme_textview"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:fontFamily="@font/brushsci_0"
-            android:gravity="center"
-            android:text="VolMe"
-            android:textColor="@android:color/white"
-            android:textSize="40dp" />
+       <TextView
+           android:layout_width="0dp"
+           android:layout_height="match_parent"
+           android:layout_weight="4"
+           android:text="VolMe"
+           android:gravity="center"
+           android:textSize="31dp"
+           android:fontFamily="@font/brushsci_0"
+           android:textColor="@android:color/white"/>
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/tour_search_01" />
+            android:src="@drawable/search_icon" />
 
     </LinearLayout>
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true"
-        android:layout_above="@id/bottom_action_bar"
-        android:layout_below="@id/top_action_bar">
+
+
+
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <RelativeLayout
                 android:id="@+id/tag_bar"
                 android:layout_width="match_parent"
                 android:layout_height="34dp"
                 android:layout_marginTop="10dp"
+                android:layout_below="@id/top_action_bar"
                 android:orientation="horizontal">
 
 
@@ -94,107 +87,56 @@
                     android:background="@drawable/buttonshape_fest"/>
             </RelativeLayout>
 
-            <TextView
-                android:id="@+id/this_week_textview"
-                android:layout_marginLeft="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tag_bar"
-                android:layout_marginTop="10dp"
-                android:text="Цього тижня"
-                android:textColor="@android:color/black"
-                android:textAllCaps="true"
-                android:textStyle="bold"/>
 
-
-            <ImageView
-                android:id="@+id/this_week_imageview"
-                android:layout_width="match_parent"
-                android:layout_height="125dp"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/this_week_textview"
-                android:src="@drawable/event_template_1" />
-
-            <TextView
-                android:id="@+id/this_month_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/this_week_imageview"
-                android:layout_marginTop="10dp"
-                android:text="Цього місяця"
-                android:textAllCaps="true"
-                android:layout_marginLeft="15dp"
-                android:textColor="@android:color/black"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/this_month_imageview"
-                android:layout_width="match_parent"
-                android:layout_height="125dp"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/this_month_textview"
-                android:src="@drawable/event_template_2"/>
-
-            <TextView
-                android:id="@+id/permanent_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Постійні"
-                android:textAllCaps="true"
-                android:layout_marginLeft="15dp"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"
-                android:layout_below="@id/this_month_imageview"/>
-
-            <ImageView
-                android:id="@+id/permanent_imageview"
-                android:layout_width="match_parent"
-                android:layout_height="125dp"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/permanent_textview"
-                android:src="@drawable/event_template_3"/>
-
-        </RelativeLayout>
-    </ScrollView>
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/event_card_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:transcriptMode="alwaysScroll"
+        android:divider="@android:color/transparent"
+        android:layout_above="@id/bottom_action_bar"
+        android:layout_below="@id/tag_bar"
+        tools:listitem="@layout/item_event"/>
 
 
 
     <LinearLayout
         android:id="@+id/bottom_action_bar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="43dp"
         android:layout_alignParentBottom="true"
         android:background="@color/colorPrimary"
         android:orientation="horizontal">
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="25dp"
+            android:layout_height="23dp"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
             android:src="@drawable/empty_screen_home"/>
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="25dp"
+            android:layout_height="23dp"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
             android:src="@drawable/ic_message_tab"/>
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="25dp"
+            android:layout_height="23dp"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/gift"/>
+            android:src="@drawable/gift_icon"/>
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="25dp"
+            android:layout_height="23dp"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/tour_account"/>
+
+            android:src="@drawable/profile_icon"/>
     </LinearLayout>
 
 </RelativeLayout>

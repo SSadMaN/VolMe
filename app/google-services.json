@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1014896234274",
+    "firebase_url": "https://volme-e1488.firebaseio.com",
+    "project_id": "volme-e1488",
+    "storage_bucket": "volme-e1488.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014896234274:android:a495321e29099ecf",
+        "android_client_info": {
+          "package_name": "sadman.volme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1014896234274-1jaokjipl6t0gfmhu54v5jhgkk4s4bk6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sadman.volme",
+            "certificate_hash": "672831dace6a3b2a5c6dbea3cfc78ed5578ca33b"
+          }
+        },
+        {
+          "client_id": "1014896234274-lmsuddp1npuvnsb9t002dc4c4s4rgo2d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCO4VuPe9NYQECtmaijB_ompuXZZe5eqM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1014896234274-lmsuddp1npuvnsb9t002dc4c4s4rgo2d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

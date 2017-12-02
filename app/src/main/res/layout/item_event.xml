@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/event_oranisator_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/black"
+        android:textSize="12dp"
+        tools:text="Українська академія лідерства" />
+
+    <TextView
+        android:id="@+id/event_title_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/event_oranisator_name"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@android:color/black"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        tools:text="Екологічна толока в Брюховецькому лісі" />
+
+    <TextView
+        android:id="@+id/event_quick_description"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/event_title_name"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="7dp"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="11dp"
+        tools:text="Екологічна акція від студентів Української академії лідерства. УАл - це десятимісячна програма неакадемічного навчання ..." />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="18dp"
+        android:layout_below="@id/event_quick_description"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/calendar_icon_view"
+            android:layout_width="18dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/calendar_icon"/>
+
+        <TextView
+            android:id="@+id/event_date_textview"
+            android:layout_toRightOf="@id/calendar_icon_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" /></RelativeLayout>
+
+        <RelativeLayout
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/location_icon_view"
+                android:layout_width="18dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/placeholder_icon"/>
+
+            <TextView
+                android:id="@+id/location_textview"
+                android:layout_toRightOf="@id/location_icon_view"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" /></RelativeLayout>
+
+        <RelativeLayout
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/tag_small_icon_view"
+                android:layout_width="18dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/black_gallon_icon"/>
+
+            <TextView
+                android:id="@+id/tag_small_textview"
+                android:layout_toRightOf="@id/tag_small_icon_view"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" /></RelativeLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
