@@ -5,7 +5,7 @@ package sadman.volme;
  */
 
 public class EventCard {
-    private String organizator_name;
+    private String organization_name;
     private String event_title;
     private String event_quick_description;
     private String event_date;
@@ -13,11 +13,10 @@ public class EventCard {
     private String event_tag;
 
     public EventCard(){
-
     }
 
-    public EventCard(String organizator_name, String event_title, String event_quick_description, String event_date, String event_location, String event_tag) {
-        this.organizator_name = organizator_name;
+    public EventCard(String organization_name, String event_title, String event_quick_description, String event_date, String event_location, String event_tag) {
+        this.organization_name = organization_name;
         this.event_title =event_title;
         this.event_quick_description = event_quick_description;
         this.event_date = event_date;
@@ -25,8 +24,8 @@ public class EventCard {
         this.event_tag = event_tag;
     }
 
-    public String getOrganizator_name() {return organizator_name;}
-    public void setOrganizator_name(String organizator_name) {this.organizator_name = organizator_name;}
+    public String getOrganization_name() {return organization_name;}
+    public void setOrganization_name(String organization_name) {this.organization_name = organization_name;}
 
     public String getEvent_title() {return event_title;}
     public void setEvent_title(String event_title) {this.event_title = event_title;}
@@ -42,6 +41,5 @@ public class EventCard {
 
     public String getEvent_tag() {return event_tag;}
     public void setEvent_tag(String event_tag) {this.event_tag = event_tag;}
-
 
 }
