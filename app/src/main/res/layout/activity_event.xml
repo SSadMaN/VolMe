@@ -17,13 +17,13 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/calendar_icon_view"
+            android:id="@+id/arrow_icon_view"
             android:layout_width="18sp"
             android:layout_height="20sp"
             android:src="@drawable/arrow"
             android:layout_marginTop="18sp"
             android:layout_marginLeft="15sp"
-            android:layout_alignParentStart="true"
+            android:layout_alignParentStart="true"/>
 
         <TextView
             android:id="@+id/name"
@@ -56,7 +56,7 @@
             android:textColor="@android:color/darker_gray"/>
 
         <RelativeLayout
-            android:id="@+id/location_relative_layout"
+            android:id="@+id/organizator"
             android:layout_below="@id/event_quick_description"
             android:layout_width="match_parent"
             android:layout_marginHorizontal="15sp"
@@ -64,14 +64,14 @@
             android:layout_height="20dp">
 
             <ImageView
-                android:id="@+id/calendar_icon_view"
+                android:id="@+id/organizator_icon"
                 android:layout_width="18sp"
                 android:layout_height="match_parent"
                 android:src="@drawable/org"/>
 
             <TextView
-                android:id="@+id/event_date_textview"
-                android:layout_toRightOf="@id/calendar_icon_view"
+                android:id="@+id/organiztor_text"
+                android:layout_toRightOf="@id/organizator_icon"
                 android:layout_marginLeft="10sp"
                 android:layout_width="wrap_content"
                 android:textColor="@android:color/darker_gray"
@@ -79,7 +79,7 @@
                 tools:text="Lviv IT Claster"/></RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/location_relative_layout"
+            android:id="@+id/location"
             android:layout_below="@id/event_quick_description"
             android:layout_width="match_parent"
             android:layout_marginHorizontal="15sp"
@@ -87,7 +87,7 @@
             android:layout_height="20dp">
 
             <ImageView
-                android:id="@+id/location_icon_view"
+                android:id="@+id/location_icon"
                 android:layout_width="18sp"
                 android:layout_height="match_parent"
                 android:src="@drawable/placeholder_icon"/>
@@ -102,7 +102,7 @@
                 tools:text="Арена Львів, вулиця Стрийська, 199, Львів"/></RelativeLayout>
 
         <RelativeLayout
-        android:id="@+id/location_relative_layout"
+        android:id="@+id/calendar"
         android:layout_below="@id/event_quick_description"
         android:layout_width="match_parent"
         android:layout_marginHorizontal="15sp"
@@ -110,13 +110,13 @@
         android:layout_height="20dp">
 
         <ImageView
-            android:id="@+id/calendar_icon_view"
+            android:id="@+id/calendar_icon"
             android:layout_width="18sp"
             android:layout_height="match_parent"
             android:src="@drawable/calendar_icon"/>
 
         <TextView
-            android:id="@+id/event_date_textview"
+            android:id="@+id/calendar_text"
             android:layout_toRightOf="@id/calendar_icon_view"
             android:layout_marginLeft="10sp"
             android:layout_width="wrap_content"
@@ -126,7 +126,7 @@
 
 
         <RelativeLayout
-            android:id="@+id/location_relative_layout"
+            android:id="@+id/tag"
             android:layout_below="@id/event_quick_description"
             android:layout_width="match_parent"
             android:layout_marginHorizontal="15sp"
@@ -134,13 +134,13 @@
             android:layout_height="20dp">
 
             <ImageView
-                android:id="@+id/tag_small_icon_view"
+                android:id="@+id/tag_icon"
                 android:layout_width="18sp"
                 android:layout_height="match_parent"
                 android:src="@drawable/black_gallon_icon"/>
 
             <TextView
-                android:id="@+id/tag_small_textview"
+                android:id="@+id/tag_text"
                 android:layout_toRightOf="@id/tag_small_icon_view"
                 android:layout_marginLeft="10sp"
                 android:layout_width="wrap_content"
