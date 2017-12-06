@@ -21,15 +21,7 @@ public class home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        ImageView swither = (ImageView) findViewById(R.id.switch_button_volunteer);
-        swither.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent vol_mainIntent = new Intent(home.this, Organizator_main.class);
-                startActivity(vol_mainIntent);
-                overridePendingTransition(0, 0);
-            }
-        });
+
 
 
         // Find the view pager that will allow the user to swipe between fragments

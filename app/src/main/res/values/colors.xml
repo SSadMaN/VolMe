@@ -3,4 +3,9 @@
     <color name="colorPrimary">#F44336</color>
     <color name="colorPrimaryDark">#F44336</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorFest">#651fff</color>
+    <color name="colorEducation">#ff1744</color>
+    <color name="colorEcology">#00e676</color>
+    <color name="colorAnimals">#ffc400</color>
+    <color name="colorPhotography">#0277BD</color>
 </resources>

@@ -9,13 +9,10 @@
 
     <!-- View border color and width -->
     <stroke
-        android:width="2dp"
-        android:color="@android:color/black" >
+        android:color="#B0BEC5" >
     </stroke>
 
-    <!-- The radius makes the corners rounded -->
-    <corners
-        android:radius="2dp"   >
-    </corners>
+
+
 
 </shape>

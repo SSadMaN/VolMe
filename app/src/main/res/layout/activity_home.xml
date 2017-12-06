@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="#f3f2f2"
     tools:context="sadman.volme.home">
 
     <LinearLayout
@@ -17,30 +17,16 @@
         tools:layout_editor_absoluteX="68dp"
         tools:layout_editor_absoluteY="0dp">
 
-        <ImageView
-            android:id="@+id/switch_button_volunteer"
-            android:layout_width="0dp"
-            android:layout_height="29dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/two_clockwise_circular_rotating_arrows_circle"
-            android:layout_weight="1"/>
 
-       <TextView
-           android:layout_width="0dp"
-           android:layout_height="match_parent"
-           android:layout_weight="4"
-           android:text="VolMe"
-           android:gravity="center"
-           android:textSize="29dp"
-           android:fontFamily="@font/brushsci_0"
-           android:textColor="@android:color/white"/>
-
-        <ImageView
+        <TextView
             android:layout_width="0dp"
-            android:layout_height="29dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/search_icon" />
+            android:text="VolMe"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:fontFamily="@font/brushsci_0"
+            android:textColor="@android:color/white"/>
 
     </LinearLayout>
 
@@ -52,44 +38,68 @@
         android:layout_height="35dp" />
 
 
-        <RelativeLayout
-                android:id="@+id/tag_bar"
-                android:layout_width="match_parent"
-                android:layout_height="34dp"
-                android:layout_marginTop="10dp"
-                android:layout_below="@id/tabs">
+    <HorizontalScrollView
+        android:id="@+id/tag_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tabs"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="12dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
 
-                <Button
-                    android:id="@+id/button_plus_tag"
-                    android:layout_width="45dp"
-                    android:layout_height="27dp"
-                    android:layout_marginLeft="15dp"
-                    android:text="+"
-                    android:textSize="20dp"
-                    android:background="@drawable/buttonshape_plus"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/buttonshape_ecology"
+                android:text="Екологія"
+                android:textAllCaps="false"
+                android:textSize="13dp" />
 
-                <Button
-                    android:id="@+id/button_ecology_tag"
-                    android:layout_toRightOf = "@id/button_plus_tag"
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="27dp"
-                    android:background="@drawable/buttonshape_ecology"
-                    android:text="екологія"
-                    android:textAllCaps="false"
-                    android:textSize="15dp" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/buttonshape_fest"
+                android:text="Фестивалі"
+                android:textAllCaps="false"
+                android:textSize="13dp" />
 
-                <Button
-                    android:layout_toRightOf="@id/button_ecology_tag"
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="27dp"
-                    android:text="фестивалі"
-                    android:textAllCaps="false"
-                    android:textSize="15dp"
-                    android:background="@drawable/buttonshape_fest"/>
-            </RelativeLayout>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/buttonshape_animals"
+                android:text="Тварини"
+                android:textAllCaps="false"
+                android:textSize="13dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/buttonshape_education"
+                android:text="Освіта"
+                android:textAllCaps="false"
+                android:textSize="13dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/buttonshape_photography"
+                android:text="Фотографія"
+                android:textAllCaps="false"
+                android:textSize="13dp" />
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
@@ -135,7 +145,6 @@
             android:layout_height="23dp"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
-
             android:src="@drawable/user_profile_icon"/>
     </LinearLayout>
 
