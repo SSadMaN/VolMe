@@ -25,9 +25,17 @@ public class ThisWeekFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.eventcard_list, container, false);
 
-        final List<EventCard> eventCards = new ArrayList<EventCard>();
+        final List<Event> eventCards = new ArrayList<Event>();
+
+        eventCards.add(new Event("Українська академія лідерства","Екологічна толока в Брюховецькому лісі", "Екологічна акція від студентів Української академії лідерства. УАл - це десятимісячна програма неакадемічного навчання ...","Брюховецький ліс", "14-15 червня", "Екологія"));
+
+        eventCards.add(new Event ("Українська академія лідерства","Екологічна толока в Брюховецькому лісі", "Екологічна акція від студентів Української академії лідерства. УАл - це десятимісячна програма неакадемічного навчання ...","Брюховецький ліс", "14-15 червня", "Екологія"));
+
+        eventCards.add(new Event ("Українська академія лідерства","Екологічна толока в Брюховецькому лісі", "Екологічна акція від студентів Української академії лідерства. УАл - це десятимісячна програма неакадемічного навчання ...","Брюховецький ліс", "14-15 червня", "Екологія"));
+
+
         ListView listView = (ListView) rootView.findViewById(R.id.eventcard_list);
-        EventcardsAdapter adapter = new EventcardsAdapter(getActivity(), R.layout.item_event, eventCards );
+        EventsAdapter adapter = new EventsAdapter(getActivity(), R.layout.item_event, eventCards );
         listView.setAdapter(adapter);
         return rootView;
     }

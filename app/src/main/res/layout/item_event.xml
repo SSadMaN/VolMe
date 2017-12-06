@@ -3,16 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="159dp"
-    android:layout_margin="5dp"
-    android:background="@drawable/frame">
+    android:layout_margin="10dp"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="4dp"
+        android:layout_height="match_parent"
+        android:background="#00e676"></LinearLayout>
 
     <TextView
         android:id="@+id/event_oranisation_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="10dp"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/darker_gray"
         android:textSize="12dp"
         tools:text="Українська академія лідерства" />
 
@@ -33,11 +38,11 @@
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/event_title_name"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginLeft="15sp"
+        android:layout_marginTop="7sp"
         android:textColor="@android:color/darker_gray"
         android:textSize="11dp"
-        tools:text="Екологічна акція від студентів Української академії лідерства. УАл - це десятимісячна програма неакадемічного навчання ..." />
+        tools:text="Екологічна акція від студентів Української академії лідерства. УАЛ - це десятимісячна програма неакадемічного навчання ..." />
 
     <RelativeLayout
         android:id="@+id/location_relative_layout"
@@ -49,16 +54,16 @@
 
         <ImageView
             android:id="@+id/location_icon_view"
-            android:layout_width="18dp"
+            android:layout_width="18sp"
             android:layout_height="match_parent"
             android:src="@drawable/placeholder_icon"/>
 
         <TextView
             android:id="@+id/location_textview"
             android:layout_toRightOf="@id/location_icon_view"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="10sp"
             android:layout_width="wrap_content"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/darker_gray"
             android:layout_height="match_parent"
             tools:text="Брюховецький ліс"/></RelativeLayout>
 
@@ -66,8 +71,8 @@
         android:layout_below="@id/location_relative_layout"
         android:layout_width="match_parent"
         android:layout_height="18dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15sp"
+        android:layout_marginRight="15sp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
@@ -84,10 +89,10 @@
 
         <TextView
             android:id="@+id/event_date_textview"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="10sp"
             android:layout_toRightOf="@id/calendar_icon_view"
-            android:layout_width="150dp"
-            android:textColor="@android:color/black"
+            android:layout_width="150sp"
+            android:textColor="@android:color/darker_gray"
             android:layout_height="match_parent"
             tools:text="14-15 червня"/></RelativeLayout>
 
@@ -96,22 +101,22 @@
         <RelativeLayout
             android:layout_toRightOf="@id/calendar_relative_layout"
             android:layout_weight="2"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="30sp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/tag_small_icon_view"
-                android:layout_width="18dp"
+                android:layout_width="18sp"
                 android:layout_height="match_parent"
                 android:src="@drawable/black_gallon_icon"/>
 
             <TextView
                 android:id="@+id/tag_small_textview"
                 android:layout_toRightOf="@id/tag_small_icon_view"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="10sp"
                 android:layout_width="wrap_content"
                 tools:text="Екологія"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/darker_gray"
                 android:layout_height="match_parent" /></RelativeLayout></RelativeLayout>
 </RelativeLayout>

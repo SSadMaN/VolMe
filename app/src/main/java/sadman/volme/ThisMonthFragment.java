@@ -23,8 +23,8 @@ public class ThisMonthFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.eventcard_list, container, false);
 
 
-        final List<EventCard> eventCards = new ArrayList<>();
-        EventcardsAdapter adapter = new EventcardsAdapter(getActivity(), R.layout.item_event, eventCards );
+        final List<Event> eventCards = new ArrayList<>();
+        EventsAdapter adapter = new EventsAdapter(getActivity(), R.layout.item_event, eventCards );
         ListView listView = (ListView) rootView.findViewById(R.id.eventcard_list);
         listView.setAdapter(adapter);
         return rootView;
