@@ -8,11 +8,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import com.firebase.ui.database.FirebaseListAdapter;
+import com.firebase.ui.database.FirebaseListOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ThisMonthFragment extends Fragment {
+
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mEventsDatabaseReference;
+    private FirebaseListAdapter<Event> mAdapter;
+    private ListView mEventListView;
 
     public ThisMonthFragment(){
     }
@@ -23,10 +35,51 @@ public class ThisMonthFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.eventcard_list, container, false);
 
 
-        final List<Event> eventCards = new ArrayList<>();
-        EventsAdapter adapter = new EventsAdapter(getActivity(), R.layout.item_event, eventCards );
-        ListView listView = (ListView) rootView.findViewById(R.id.eventcard_list);
-        listView.setAdapter(adapter);
+        // Initialize Firebase components
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mEventsDatabaseReference = mFirebaseDatabase.getReference().child("events");
+
+        // Initialize references to views
+        mEventListView = (ListView) rootView.findViewById(R.id.eventcard_list);
+
+
+        Query query = FirebaseDatabase.getInstance().getReference().child("events");
+
+        FirebaseListOptions<Event> options =
+                new FirebaseListOptions.Builder<Event>()
+                        .setQuery(query, Event.class)
+                        .setLayout(R.layout.item_event)
+                        .build();
+        mAdapter = new FirebaseListAdapter<Event>(options){
+            @Override
+            protected void populateView(View v, Event eventview, int position) {
+                ((TextView)v.findViewById(R.id.event_oranisation_name)).setText(eventview.getOrganization_name());
+                ((TextView)v.findViewById(R.id.event_title_name)).setText(eventview.getEvent_title());
+                ((TextView)v.findViewById(R.id.event_quick_description)).setText(eventview.getEvent_description());
+                ((TextView)v.findViewById(R.id.event_date_textview)).setText(eventview.getEvent_data());
+                ((TextView)v.findViewById(R.id.location_textview)).setText(eventview.getEvent_location());
+                ((TextView)v.findViewById(R.id.tag_small_textview)).setText(eventview.getEvent_tag());
+            }
+
+
+        };
+
+        mEventListView.setAdapter(mAdapter);
         return rootView;
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAdapter.startListening();
+    }
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mAdapter.stopListening();
+    }
+
+
 }

@@ -10,24 +10,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
+import com.firebase.ui.database.FirebaseListAdapter;
+import com.firebase.ui.database.FirebaseListOptions;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class ThisWeekFragment extends Fragment{
 
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mEventsDatabaseReference;
-    private ChildEventListener mChildEventListener;
-
-    private EventsAdapter mEventCardsAdapter;
+    private FirebaseListAdapter<Event> mAdapter;
     private ListView mEventListView;
 
     public ThisWeekFragment(){
@@ -47,40 +45,42 @@ public class ThisWeekFragment extends Fragment{
         mEventListView = (ListView) rootView.findViewById(R.id.eventcard_list);
 
 
-        // Initialize message ListView and its adapter
-        final List<Event> newevent = new ArrayList<>();
-        mEventCardsAdapter = new EventsAdapter(getContext(), R.layout.item_event, newevent);
-        mEventListView.setAdapter(mEventCardsAdapter);
+        Query query = FirebaseDatabase.getInstance().getReference().child("events");
 
-
-        mChildEventListener = new ChildEventListener() {
+        FirebaseListOptions<Event> options =
+                new FirebaseListOptions.Builder<Event>()
+                        .setQuery(query, Event.class)
+                        .setLayout(R.layout.item_event)
+                        .build();
+        mAdapter = new FirebaseListAdapter<Event>(options){
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Event newevent = dataSnapshot.getValue(Event.class);
-                mEventCardsAdapter.add(newevent);
+            protected void populateView(View v, Event eventview, int position) {
+                ((TextView)v.findViewById(R.id.event_oranisation_name)).setText(eventview.getOrganization_name());
+                ((TextView)v.findViewById(R.id.event_title_name)).setText(eventview.getEvent_title());
+                ((TextView)v.findViewById(R.id.event_quick_description)).setText(eventview.getEvent_description());
+                ((TextView)v.findViewById(R.id.event_date_textview)).setText(eventview.getEvent_data());
+                ((TextView)v.findViewById(R.id.location_textview)).setText(eventview.getEvent_location());
+                ((TextView)v.findViewById(R.id.tag_small_textview)).setText(eventview.getEvent_tag());
             }
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
         };
 
-        mEventsDatabaseReference.addChildEventListener(mChildEventListener);
+        mEventListView.setAdapter(mAdapter);
         return rootView;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAdapter.startListening();
+    }
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mAdapter.stopListening();
     }
 
 

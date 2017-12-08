@@ -2,26 +2,21 @@ package sadman.volme;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
+import com.firebase.ui.database.FirebaseListAdapter;
+import com.firebase.ui.database.FirebaseListOptions;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import com.google.firebase.database.Query;
 
 /**
  * Created by sadman on 03/12/17.
@@ -31,9 +26,8 @@ public class Organizator_main extends AppCompatActivity {
 
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mEventsDatabaseReference;
-    private ChildEventListener mChildEventListener;
+    private FirebaseListAdapter<Event> mAdapter;
 
-    private EventsAdapter mEventCardsAdapter;
     private ListView mEventListView;
 
     private static final String TAG = "Organizator_main";
@@ -75,11 +69,28 @@ public class Organizator_main extends AppCompatActivity {
         // Initialize references to views
         mEventListView = (ListView) findViewById(R.id.org_listview);
 
+        Query query = FirebaseDatabase.getInstance().getReference().child("events");
 
-        // Initialize message ListView and its adapter
-        final List<Event> newevent = new ArrayList<>();
-        mEventCardsAdapter = new EventsAdapter(this, R.layout.item_event, newevent);
-        mEventListView.setAdapter(mEventCardsAdapter);
+        FirebaseListOptions<Event> options =
+                new FirebaseListOptions.Builder<Event>()
+                        .setQuery(query, Event.class)
+                        .setLayout(R.layout.item_event)
+                        .build();
+        mAdapter = new FirebaseListAdapter<Event>(options){
+            @Override
+            protected void populateView(View v, Event eventview, int position) {
+                ((TextView)v.findViewById(R.id.event_oranisation_name)).setText(eventview.getOrganization_name());
+                ((TextView)v.findViewById(R.id.event_title_name)).setText(eventview.getEvent_title());
+                ((TextView)v.findViewById(R.id.event_quick_description)).setText(eventview.getEvent_description());
+                ((TextView)v.findViewById(R.id.event_date_textview)).setText(eventview.getEvent_data());
+                ((TextView)v.findViewById(R.id.location_textview)).setText(eventview.getEvent_location());
+                ((TextView)v.findViewById(R.id.tag_small_textview)).setText(eventview.getEvent_tag());
+            }
+
+
+        };
+
+        mEventListView.setAdapter(mAdapter);
 
         mEventListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -89,59 +100,18 @@ public class Organizator_main extends AppCompatActivity {
                 overridePendingTransition(0, 0);
             }
         });
-
-
-        mChildEventListener = new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Event newevent = dataSnapshot.getValue(Event.class);
-                mEventCardsAdapter.add(newevent);
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-                Log.d(TAG,"dataREMOVE "+ dataSnapshot.getKey());
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        };
-
-        mEventsDatabaseReference.addChildEventListener(mChildEventListener);
-
-
-
-
-
-       /* RelativeLayout event_card_relative_layout = (RelativeLayout) findViewById(R.id.item_event_relative_layout);
-        event_card_relative_layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent event_deployed_activity = new Intent(Organizator_main.this, EventActivity.class);
-                startActivity(event_deployed_activity);
-                overridePendingTransition(0, 0);
-            }
-        });*/
-
-
-       /* //swipe refresh
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
-        mSwipeRefreshLayout.setOnRefreshListener(this); */
     }
 
+   @Override
+   protected void onStart() {
+       super.onStart();
+       mAdapter.startListening();
+   }
 
-   /* @Override
-    public void onRefresh() {
-        setContentView(R.layout.organizator_main);
 
-    }*/
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mAdapter.stopListening();
+    }
 }
