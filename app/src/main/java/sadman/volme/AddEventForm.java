@@ -4,13 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Toast;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,7 +36,7 @@ public class AddEventForm extends AppCompatActivity {
     private EditText mEditEventOrgName;
     private EditText mEditEventDescription;
     private EditText mEditEventDate;
-    private EditText mEditEventTag;
+    private Spinner mEditEventTag;
     private EditText mEditEventLocation;
 
 
@@ -55,7 +58,7 @@ public class AddEventForm extends AppCompatActivity {
         mEditEventOrgName = (EditText) findViewById(R.id.add_organization_name);
         mEditEventDescription = (EditText) findViewById(R.id.add_event_description);
         mEditEventDate = (EditText) findViewById(R.id.add_event_date);
-        mEditEventTag = (EditText) findViewById(R.id.add_event_tag);
+        mEditEventTag = (Spinner) findViewById(R.id.add_event_tag);
         mEditEventLocation = (EditText) findViewById(R.id.add_event_location);
 
 
@@ -66,7 +69,7 @@ public class AddEventForm extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO:set all fields on click
-                Event oneevent = new Event(mEditEventOrgName.getText().toString(), mEditEventTitle.getText().toString(), mEditEventDescription.getText().toString(), mEditEventDate.getText().toString(), mEditEventLocation.getText().toString(), mEditEventTag.getText().toString());
+                Event oneevent = new Event(mEditEventOrgName.getText().toString(), mEditEventTitle.getText().toString(), mEditEventDescription.getText().toString(), mEditEventDate.getText().toString(), mEditEventLocation.getText().toString(), mEditEventTag.getSelectedItem().toString());
                 mEventsDatabaseReference.push().setValue(oneevent);
 
                 Intent go_back_to_organizator_screen = new Intent(AddEventForm.this, Organizator_main.class);
@@ -79,12 +82,40 @@ public class AddEventForm extends AppCompatActivity {
                 mEditEventOrgName.setText("");
                 mEditEventDescription.setText("");
                 mEditEventDate.setText("");
-                mEditEventTag.setText("");
                 mEditEventLocation.setText("");
 
 
 
             }
+        });
+
+//spinner
+
+
+        Spinner spinner = (Spinner) findViewById(R.id.add_event_tag);
+// Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.events_array, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+
+        spinner.setPrompt("Select your favorite Planet!");
+
+        spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+                Toast.makeText(getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+
         });
     }
 }

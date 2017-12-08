@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
@@ -70,6 +73,7 @@
             android:layout_height="50dp"
             android:textColor="@android:color/darker_gray"
             android:hint="Add event organization name"
+            android:textColorHint="@android:color/black"
             tools:text="Add event organization name"/>
 
         <EditText
@@ -94,20 +98,10 @@
             android:textColorHint="@android:color/black"
             tools:text="Add event date"/>
 
-        <EditText
-            android:id="@+id/add_event_tag"
-            android:layout_below="@id/add_event_date"
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textColor="@android:color/darker_gray"
-            android:hint="Add event tag"
-            android:textColorHint="@android:color/black"
-            tools:text="Add event tag"/>
 
         <EditText
             android:id="@+id/add_event_location"
-            android:layout_below="@id/add_event_tag"
+            android:layout_below="@id/add_event_date"
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -116,10 +110,18 @@
             android:hint="Add event location"
             tools:text="Add event location"/>
 
+        <Spinner
+            android:id="@+id/add_event_tag"
+            android:layout_below="@id/add_event_location"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textColor="@android:color/black" />
+
         <Button
             android:id="@+id/submit_event_form"
             android:layout_margin="20dp"
-            android:layout_below="@id/add_event_location"
+            android:layout_below="@id/add_event_tag"
             android:background="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -130,3 +132,4 @@
 
 
 </RelativeLayout>
+</ScrollView>

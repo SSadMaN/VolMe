@@ -2,10 +2,16 @@ package sadman.volme;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Layout;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -14,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -28,6 +35,8 @@ public class Organizator_main extends AppCompatActivity {
 
     private EventsAdapter mEventCardsAdapter;
     private ListView mEventListView;
+
+    private static final String TAG = "Organizator_main";
 
 
 
@@ -72,6 +81,15 @@ public class Organizator_main extends AppCompatActivity {
         mEventCardsAdapter = new EventsAdapter(this, R.layout.item_event, newevent);
         mEventListView.setAdapter(mEventCardsAdapter);
 
+        mEventListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent event_deployed_activity = new Intent(Organizator_main.this, EventActivity.class);
+                startActivity(event_deployed_activity);
+                overridePendingTransition(0, 0);
+            }
+        });
+
 
         mChildEventListener = new ChildEventListener() {
             @Override
@@ -86,6 +104,7 @@ public class Organizator_main extends AppCompatActivity {
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
+                Log.d(TAG,"dataREMOVE "+ dataSnapshot.getKey());
             }
 
             @Override
@@ -98,5 +117,31 @@ public class Organizator_main extends AppCompatActivity {
         };
 
         mEventsDatabaseReference.addChildEventListener(mChildEventListener);
+
+
+
+
+
+       /* RelativeLayout event_card_relative_layout = (RelativeLayout) findViewById(R.id.item_event_relative_layout);
+        event_card_relative_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent event_deployed_activity = new Intent(Organizator_main.this, EventActivity.class);
+                startActivity(event_deployed_activity);
+                overridePendingTransition(0, 0);
+            }
+        });*/
+
+
+       /* //swipe refresh
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
+        mSwipeRefreshLayout.setOnRefreshListener(this); */
     }
+
+
+   /* @Override
+    public void onRefresh() {
+        setContentView(R.layout.organizator_main);
+
+    }*/
 }

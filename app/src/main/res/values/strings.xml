@@ -5,4 +5,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_bonuses">BonusesActivity</string>
     <string name="title_activity_event">EventActivity</string>
+
+    <string-array name="events_array">
+        <item>Фестивалі</item>
+        <item>Екологія</item>
+        <item>Допомога тваринам</item>
+        <item>Фотографія</item>
+        <item>Освіта</item>
+    </string-array>
 </resources>

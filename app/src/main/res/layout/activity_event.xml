@@ -47,11 +47,12 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/event_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15sp"
             android:layout_marginTop="15sp"
-            android:text="IT Arena – найграндіозніша ІТ-подія України та Сх. Європи, яка об’єднує програмістів, дизайнерів, топ-менеджерів, PMів, бізнес аналітиків, підприємців та стартаперів для обміну досвідом та обговорення нових ІТ-трендів."
+            tools:text="IT Arena – найграндіозніша ІТ-подія України та Сх. Європи, яка об’єднує програмістів, дизайнерів, топ-менеджерів, PMів, бізнес аналітиків, підприємців та стартаперів для обміну досвідом та обговорення нових ІТ-трендів."
             android:textSize="13sp"
             android:textColor="@android:color/darker_gray"/>
 
@@ -70,9 +71,9 @@
                 android:src="@drawable/org"/>
 
             <TextView
-                android:id="@+id/organiztor_text"
+                android:id="@+id/organizator_text"
                 android:layout_toRightOf="@id/organizator_icon"
-                android:layout_marginLeft="10sp"
+                android:layout_marginLeft="11sp"
                 android:layout_width="wrap_content"
                 android:textColor="@android:color/darker_gray"
                 android:layout_height="match_parent"
@@ -95,7 +96,7 @@
             <TextView
                 android:id="@+id/location_textview"
                 android:layout_toRightOf="@id/location_icon_view"
-                android:layout_marginLeft="10sp"
+                android:layout_marginLeft="30sp"
                 android:layout_width="wrap_content"
                 android:textColor="@android:color/darker_gray"
                 android:layout_height="match_parent"
@@ -118,7 +119,7 @@
         <TextView
             android:id="@+id/calendar_text"
             android:layout_toRightOf="@id/calendar_icon_view"
-            android:layout_marginLeft="10sp"
+            android:layout_marginLeft="30sp"
             android:layout_width="wrap_content"
             android:textColor="@android:color/darker_gray"
             android:layout_height="match_parent"
@@ -142,7 +143,7 @@
             <TextView
                 android:id="@+id/tag_text"
                 android:layout_toRightOf="@id/tag_small_icon_view"
-                android:layout_marginLeft="10sp"
+                android:layout_marginLeft="30sp"
                 android:layout_width="wrap_content"
                 android:textColor="@android:color/darker_gray"
                 android:layout_height="match_parent"
