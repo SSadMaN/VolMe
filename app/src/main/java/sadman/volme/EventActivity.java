@@ -17,17 +17,13 @@ public class EventActivity extends AppCompatActivity {
 
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mEventsDatabaseReference;
-    private DatabaseReference mEventKeyDatabaseReferencex;
-    private ChildEventListener mChildEventListener;
 
-    private EventsAdapter mEventCardsAdapter;
-    private ListView mEventListView;
 
 
     private TextView event_title;
     private TextView event_organizator;
     private TextView event_description;
-    private TextView event_date;
+    private TextView event_data;
     private TextView event_location;
     private TextView event_tag;
 
@@ -45,14 +41,9 @@ public class EventActivity extends AppCompatActivity {
         event_title = findViewById(R.id.name);
         event_organizator = findViewById(R.id.organizator_text);
         event_description = findViewById(R.id.event_description);
-        event_date = findViewById(R.id.calendar_text);
+        event_data = findViewById(R.id.calendar_text);
         event_location = findViewById(R.id.location_textview);
         event_tag = findViewById(R.id.tag_text);
-
-        event_title.setText("fuckoff");
-        event_organizator.setText("gavno");
-
-
 
 
     }
