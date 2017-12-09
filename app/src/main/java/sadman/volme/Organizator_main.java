@@ -94,8 +94,13 @@ public class Organizator_main extends AppCompatActivity {
 
         mEventListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                String itemkey = mAdapter.getRef(position).getKey();
+
                 Intent event_deployed_activity = new Intent(Organizator_main.this, EventActivity.class);
+
+                event_deployed_activity.putExtra("key", itemkey);
+
                 startActivity(event_deployed_activity);
                 overridePendingTransition(0, 0);
             }

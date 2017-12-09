@@ -1,12 +1,14 @@
 package sadman.volme;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -65,6 +67,21 @@ public class ThisMonthFragment extends Fragment {
         };
 
         mEventListView.setAdapter(mAdapter);
+
+        mEventListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                String itemkey = mAdapter.getRef(position).getKey();
+
+                Intent event_deployed_activity = new Intent(getActivity(), EventActivity.class);
+
+                event_deployed_activity.putExtra("key", itemkey);
+
+                startActivity(event_deployed_activity);
+                getActivity().overridePendingTransition(0, 0);
+            }
+        });
+
         return rootView;
     }
 
