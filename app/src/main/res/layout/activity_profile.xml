@@ -124,7 +124,7 @@
             android:layout_margin="5sp">
 
             <EditText
-                android:id="@+id/add_event_title_name"
+                android:id="@+id/profile_email"
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
