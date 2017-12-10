@@ -10,22 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".home">
+
+        </activity>
+        <activity android:name=".Organizator_main" />
+        <activity android:name=".AddEventForm" />
+        <activity android:name=".BonusesActivity"/>
+        <activity
+            android:name=".EventActivity"
+            android:label="@string/title_activity_event"
+            android:theme="@style/AppTheme">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Organizator_main" />
-        <activity android:name=".AddEventForm" />
-        <activity
-            android:name=".BonusesActivity"
-            android:label="@string/title_activity_bonuses"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".EventActivity"
-            android:label="@string/title_activity_event"
-            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

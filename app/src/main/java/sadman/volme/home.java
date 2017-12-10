@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,10 +17,22 @@ import java.util.List;
 
 public class home extends AppCompatActivity {
 
+    public void openBonuses(View v) {
+        Intent i = new Intent(this, BonusesActivity.class);
+        startActivity(i);
+    }
+
+    public void openHome(View v) {
+        Intent i = new Intent(this, home.class);
+        startActivity(i);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+
 
 
 
@@ -44,4 +57,8 @@ public class home extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
     }
+
+
+
+
 }

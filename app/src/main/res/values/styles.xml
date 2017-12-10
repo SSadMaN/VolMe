@@ -11,9 +11,9 @@
         <item name="colorEcology">@color/colorEcology</item>
         <item name="colorAnimals">@color/colorAnimals</item>
         <item name="colorPhotography">@color/colorPhotography</item>
-
-
     </style>
+
+
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

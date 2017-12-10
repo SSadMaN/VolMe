@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
+
 
 
 
@@ -47,10 +48,12 @@
     <RelativeLayout
         android:layout_below="@id/top_action_bar"
         android:background="@android:color/white"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_marginHorizontal="10sp"
         android:layout_marginTop="100sp">
+
+
 
         <EditText
             android:id="@+id/add_event_title_name"
@@ -58,9 +61,9 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textColor="@android:color/darker_gray"
-            tools:text="Add event title"
             android:textColorHint="@android:color/black"
-            android:hint="Add event title"/>
+            tools:text="Назва волонтерства/заходу"
+            android:hint="Назва волонтерства/заходу" />
 
         <EditText
             android:id="@+id/add_organization_name"
@@ -69,8 +72,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textColor="@android:color/darker_gray"
-            android:hint="Add event organization name"
-            tools:text="Add event organization name"/>
+            android:hint="Організатор"
+            tools:text="Організатор"/>
 
         <EditText
             android:id="@+id/add_event_description"
@@ -79,9 +82,9 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textColor="@android:color/darker_gray"
-            android:hint="Add event description"
             android:textColorHint="@android:color/black"
-            tools:text="Add event description"/>
+            android:hint="Опис"
+            tools:text="Опис"/>
 
         <EditText
             android:id="@+id/add_event_date"
@@ -90,9 +93,9 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textColor="@android:color/darker_gray"
-            android:hint="Add event date"
             android:textColorHint="@android:color/black"
-            tools:text="Add event date"/>
+            tools:text="Дата проведення"
+            android:hint="Дата проведення" />
 
         <EditText
             android:id="@+id/add_event_tag"
@@ -113,8 +116,8 @@
             android:layout_height="50dp"
             android:textColor="@android:color/darker_gray"
             android:textColorHint="@android:color/black"
-            android:hint="Add event location"
-            tools:text="Add event location"/>
+            android:hint="Місце"
+            tools:text="Місце"/>
 
         <Button
             android:id="@+id/submit_event_form"
@@ -126,7 +129,8 @@
             android:layout_alignParentRight="true"
             android:text="Опублікувати"/>
 
+
+
     </RelativeLayout>
 
-
-</RelativeLayout>
+</ScrollView>

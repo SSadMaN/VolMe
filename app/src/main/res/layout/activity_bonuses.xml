@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    tools:context="sadman.volme.home">
+    tools:context="sadman.volme.BonusesActivity">
 
 
 
@@ -221,31 +221,46 @@
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="23dp"
-            android:layout_gravity="center_vertical"
+            android:layout_height="22sp"
+            android:layout_marginLeft="10sp"
             android:layout_weight="1"
-            android:src="@drawable/home_interface_icon" />
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/home_interface_icon"
+            android:onClick="openHome" />
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="23dp"
-            android:layout_gravity="center_vertical"
+            android:layout_height="22sp"
             android:layout_weight="1"
-            android:src="@drawable/double_chat_icon" />
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/heart_icon" />
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="23dp"
-            android:layout_gravity="center_vertical"
+            android:layout_height="22sp"
             android:layout_weight="1"
-            android:src="@drawable/gift_new_icon" />
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/add" />
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="23dp"
-            android:layout_gravity="center_vertical"
+            android:layout_height="22sp"
             android:layout_weight="1"
-            android:src="@drawable/user_profile_icon" />
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/gift_icon"
+            android:onClick="openBonuses" />
+
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="22sp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/user_profile_icon"
+            android:layout_marginRight="10sp"/>
+
+
     </LinearLayout>
 
 </RelativeLayout>
