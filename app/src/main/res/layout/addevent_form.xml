@@ -116,7 +116,9 @@
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-
+            android:textColorHint="@android:color/black"
+            android:hint="Місце"
+            tools:text="Місце"
             android:textColor="@android:color/black" />
 
         <Button
@@ -130,7 +132,7 @@
             android:text="Опублікувати"/>
 
     </RelativeLayout>
-
-
 </RelativeLayout>
+
+
 </ScrollView>

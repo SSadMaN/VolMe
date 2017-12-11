@@ -57,7 +57,7 @@ public class EventActivity extends AppCompatActivity {
         titleref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-            event_title.setText(dataSnapshot.getValue(String.class));
+                event_title.setText(dataSnapshot.getValue(String.class));
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
