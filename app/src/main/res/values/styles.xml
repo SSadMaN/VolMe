@@ -5,15 +5,15 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorFest">@color/colorFest</item>
-        <item name="colorEducation">@color/colorEducation</item>
-        <item name="colorEcology">@color/colorEcology</item>
-        <item name="colorAnimals">@color/colorAnimals</item>
-        <item name="colorPhotography">@color/colorPhotography</item>
     </style>
 
+    <style name="AppTheme.RoundedCornerMaterialButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/rounded_shape</item>
+    </style>
 
+    <style name="AppTheme.RoundedCornerMaterialButtonMessanger" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/rounded_messanger</item>
+    </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

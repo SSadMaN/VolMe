@@ -8,7 +8,14 @@
     android:orientation="vertical"
     tools:context="sadman.volme.BonusesActivity">
 
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@id/bottom_action_bar">
 
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:id="@+id/bonuses"
@@ -54,10 +61,10 @@
 
     </RelativeLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bottom_action_bar"
         android:layout_below="@id/bonuses"
         android:orientation="vertical">
 
@@ -90,12 +97,17 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:text="= 5 бонусів"
+                android:text="5 бонусів"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginLeft="10sp"/>
 
         </LinearLayout>
+
+
+
+
 
 
         <LinearLayout
@@ -126,12 +138,54 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:text="= 5 бонусів"
+                android:text="5 бонусів"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginLeft="11sp"/>
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15sp">
+
+            <ImageView
+                android:id="@+id/cinema_bonus"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_weight="1"
+                android:src="@drawable/cinema" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/cinema_bonus"
+
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10sp"
+                android:layout_weight="1"
+                android:text="Знижка 50% в Планету Кіно"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="5 бонусів"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="10sp"/>
+
+        </LinearLayout>
+
+
+
+
 
 
         <LinearLayout
@@ -162,12 +216,54 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:text="= 5 бонусів"
+                android:text="5 бонусів"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginLeft="11sp"/>
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15sp">
+
+            <ImageView
+                android:id="@+id/cinema_bonus"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_weight="1"
+                android:src="@drawable/cinema" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/cinema_bonus"
+
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10sp"
+                android:layout_weight="1"
+                android:text="Знижка 50% в Планету Кіно"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="5 бонусів"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="10sp"/>
+
+        </LinearLayout>
+
+
+
+
 
 
         <LinearLayout
@@ -198,17 +294,27 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:text="= 5 бонусів"
+                android:text="5 бонусів"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="15sp"
-                android:textStyle="bold" />
-
+                android:textStyle="bold"
+                android:layout_marginLeft="11sp"/>
 
         </LinearLayout>
+
+
+
+
+
+
 
 
     </LinearLayout>
 
+
+</RelativeLayout>
+
+</ScrollView>
 
 
     <LinearLayout

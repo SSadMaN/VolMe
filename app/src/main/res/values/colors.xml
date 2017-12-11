@@ -8,4 +8,10 @@
     <color name="colorEcology">#00e676</color>
     <color name="colorAnimals">#ffc400</color>
     <color name="colorPhotography">#0277BD</color>
+    <color name="colorChildren">#AA00FF</color>
+    <color name="colorArmy">#00695C</color>
+    <color name="colorSport">#00E5FF</color>
+    <color name="colorIT">#AD1457</color>
+    <color name="colorCulture">#E65100</color>
+
 </resources>

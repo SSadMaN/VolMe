@@ -84,6 +84,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_marginLeft="10dp"
+                android:background="@drawable/buttonshape_army"
+                android:text="Армія"
+                android:textAllCaps="false"
+                android:textSize="13dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
                 android:background="@drawable/buttonshape_education"
                 android:text="Освіта"
                 android:textAllCaps="false"
@@ -95,6 +104,43 @@
                 android:layout_marginLeft="10dp"
                 android:background="@drawable/buttonshape_photography"
                 android:text="Фотографія"
+                android:textAllCaps="false"
+                android:textSize="13dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/buttonshape_children"
+                android:text="Діти"
+                android:textAllCaps="false"
+                android:textSize="13dp" />
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/buttonshape_sport"
+                android:text="Спорт"
+                android:textAllCaps="false"
+                android:textSize="13dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/buttonshape_it"
+                android:text="ІТ"
+                android:textAllCaps="false"
+                android:textSize="13dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/buttonshape_culture"
+                android:text="Культура"
                 android:textAllCaps="false"
                 android:textSize="13dp" />
 

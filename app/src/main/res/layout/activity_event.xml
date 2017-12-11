@@ -10,6 +10,36 @@
     android:fillViewport="true"
     tools:context="sadman.volme.EventActivity">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10sp">
+
+        <Button
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:text="@string/icon_like"
+            android:fontFamily="@font/ionicons"
+            android:textColor="@android:color/white"
+            android:textSize="27sp"
+            android:layout_margin="10sp"
+            style="@style/AppTheme.RoundedCornerMaterialButton"/>
+
+        <Button
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:text="@string/icon_chat"
+            android:fontFamily="@font/ionicons"
+            android:textColor="@android:color/white"
+            android:textSize="27sp"
+            android:layout_margin="10sp"
+            style="@style/AppTheme.RoundedCornerMaterialButtonMessanger"/>
+    </LinearLayout>
+
 
     <RelativeLayout
         android:id="@+id/event_cover"
@@ -67,11 +97,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/button_event"
         android:layout_below="@id/event_cover"
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/event_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15sp"
@@ -134,7 +164,7 @@
                 android:textColor="@android:color/darker_gray"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                tools:text="Арена Львів, вулиця Стрийська, 199, Львів"/></RelativeLayout>
+                tools:text="Арена Львів, вул. Стрийська, 199, Львів"/></RelativeLayout>
 
         <RelativeLayout
         android:id="@+id/calendar"
@@ -199,15 +229,8 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button_event"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorEcology"
-        android:text="Зв'язатись з організатором"
-        android:textAllCaps="true"
-        android:layout_alignParentBottom="true"
-        android:textColor="@android:color/white" />
+
+
 
 
 
