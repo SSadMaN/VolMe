@@ -73,8 +73,7 @@
                 android:background="@drawable/buttonshape_ecology"
                 android:text="Екологія"
                 android:textAllCaps="false"
-                android:textSize="13dp"
-                 />
+                android:textSize="13dp" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -136,46 +135,31 @@
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="22sp"
-            android:layout_marginLeft="10sp"
+            android:layout_height="23dp"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/home_interface_icon"
-            android:onClick="openHome" />
+            android:src="@drawable/home_interface_icon"/>
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="22sp"
+            android:layout_height="23dp"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/heart_icon" />
+            android:src="@drawable/double_chat_icon"/>
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="22sp"
+            android:layout_height="23dp"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/add" />
+            android:src="@drawable/gift_new_icon"/>
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="22sp"
+            android:layout_height="23dp"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/gift_icon"
-            android:onClick="openBonuses" />
-
-
-
-        <ImageView
-        android:layout_width="0dp"
-        android:layout_height="22sp"
-        android:layout_weight="1"
-        android:layout_gravity="center_vertical"
-        android:src="@drawable/user_profile_icon"
-        android:layout_marginRight="10sp"/>
-
-
+            android:src="@drawable/user_profile_icon"/>
     </LinearLayout>
 
 </RelativeLayout>
