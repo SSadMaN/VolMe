@@ -54,11 +54,15 @@
 
     </RelativeLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bottom_action_bar"
-        android:layout_below="@id/bonuses"
+        android:layout_below="@id/bonuses">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
@@ -207,7 +211,7 @@
         </LinearLayout>
 
 
-    </LinearLayout>
+    </LinearLayout></ScrollView>
 
 
 

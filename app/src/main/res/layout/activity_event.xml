@@ -51,9 +51,10 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/linear_layoutx"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/button_event"
+        android:layout_above="@id/subscribers_bar"
         android:layout_below="@id/bonuses"
         android:orientation="vertical">
 
@@ -164,16 +165,42 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button_event"
+    <RelativeLayout
+        android:id="@+id/subscribers_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorEcology"
-        android:text="Підписатись"
-        android:textAllCaps="true"
-        android:layout_alignParentBottom="true"
-        android:textColor="@android:color/white" />
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true">
 
+        <ImageView
+            android:id="@+id/like_full"
+            android:visibility="invisible"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/like_full"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
+    <ImageView
+        android:id="@+id/like"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/like_empty" />
+
+        <TextView
+            android:id="@+id/subscribers_list_button"
+            android:text="Список волонтерів"
+            android:textColor="@android:color/darker_gray"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/like"/>
+
+    </RelativeLayout>
 
 
 

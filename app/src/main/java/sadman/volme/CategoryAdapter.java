@@ -37,11 +37,11 @@ public class CategoryAdapter extends FragmentPagerAdapter{
     @Override
     public CharSequence getPageTitle(int position){
         if (position == 0){
-            return "Тиждень";
+            return "Останні";
         } else if (position == 1){
-            return "Місяць";
+            return "Підписки";
         } else {
-            return "Постійно";
+            return "Збережені";
         }
     }
 

@@ -1,5 +1,6 @@
 package sadman.volme;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -41,11 +42,11 @@ public class home extends AppCompatActivity {
     public String surname;
     public String email;
     public String userkey;
+    public String uid;
 
 
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
-    private DatabaseReference mGetUserKey;
 
    // private GoogleSignInClient mGoogleSignInClient;
     //private GoogleApiClient mGoogleApiClient;
@@ -65,26 +66,6 @@ public class home extends AppCompatActivity {
         mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("user");
         mFirebaseAuth = FirebaseAuth.getInstance();
 
-
-       //retrieving user key
-        mGetUserKey = FirebaseDatabase.getInstance().getReference().child("user");
-        mGetUserKey.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                for (DataSnapshot objSnapshot : snapshot.getChildren()) {
-                    Object obj = objSnapshot.getKey();
-                    userkey = obj.toString();
-                }
-                }
-                @Override
-                public void onCancelled (DatabaseError firebaseError){
-                }
-
-        });
-
-
-
-
         ImageView get_profile = (ImageView) findViewById(R.id.profile_button);
         get_profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +73,7 @@ public class home extends AppCompatActivity {
                 Intent prof_mainIntent = new Intent(home.this, ProfileActivity.class);
                 prof_mainIntent.putExtra("name", name);
                 prof_mainIntent.putExtra("email", email);
-                prof_mainIntent.putExtra("key", userkey);
+                prof_mainIntent.putExtra("keyu", uid);
                 startActivity(prof_mainIntent);
                 overridePendingTransition(0, 0);
             }
@@ -125,8 +106,6 @@ public class home extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
             }
         });
-
-
 
 
         // Find the view pager that will allow the user to swipe between fragments
@@ -178,16 +157,16 @@ public class home extends AppCompatActivity {
                     // The user's ID, unique to the Firebase project. Do NOT use this value to
                     // authenticate with your backend server, if you have one. Use
                     // FirebaseUser.getToken() instead.
-                    String uid = user.getUid();
+                    uid = user.getUid();
 
                     //check if email already exists
-                    Query query = FirebaseDatabase.getInstance().getReference().child("user").orderByChild("user_email").equalTo(email);
+                    Query query = FirebaseDatabase.getInstance().getReference().child("user").orderByChild("userUid").equalTo(uid);
                     query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             if (dataSnapshot.getChildrenCount() < 1) {
                                 // write retrieved data to database
-                                User new_user = new User(name,email);
+                                User new_user = new User(name,email,uid);
                                 mDatabaseReference.push().setValue(new_user);
                             }
                         }

@@ -24,7 +24,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         name = getIntent().getStringExtra("name");
         email = getIntent().getStringExtra("email");
-        userkey = getIntent().getStringExtra("key");
+        userkey = getIntent().getStringExtra("keyu");
 
 
         ImageView bonuses = (ImageView) findViewById(R.id.bonuses_button);
@@ -63,9 +63,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         TextView email_textview = (TextView) findViewById(R.id.profile_email);
         email_textview.setText(email);
-
-        TextView userkey_textview = (TextView) findViewById(R.id.profile_sname);
-        userkey_textview.setText(userkey);
 
     }
 }

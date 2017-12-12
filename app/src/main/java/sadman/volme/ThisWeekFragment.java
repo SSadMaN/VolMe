@@ -1,9 +1,11 @@
 package sadman.volme;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -17,6 +19,8 @@ import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -25,11 +29,15 @@ import com.google.firebase.database.Query;
 
 
 public class ThisWeekFragment extends Fragment{
+    public String userUid;
+    public String uid;
 
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mEventsDatabaseReference;
     private FirebaseListAdapter<Event> mAdapter;
     private ListView mEventListView;
+
+
 
     public ThisWeekFragment(){
         //requires empty public constructor
@@ -40,9 +48,16 @@ public class ThisWeekFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.eventcard_list, container, false);
 
+
         // Initialize Firebase components
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mEventsDatabaseReference = mFirebaseDatabase.getReference().child("events");
+
+
+
+
+
+
 
         // Initialize references to views
         mEventListView = (ListView) rootView.findViewById(R.id.eventcard_list);
@@ -80,12 +95,14 @@ public class ThisWeekFragment extends Fragment{
                 Intent event_deployed_activity = new Intent(getActivity(), EventActivity.class);
 
                 event_deployed_activity.putExtra("key", itemkey);
+                event_deployed_activity.putExtra("keyu", uid);
 
                 startActivity(event_deployed_activity);
                 getActivity().overridePendingTransition(0, 0);
             }
         });
         return rootView;
+
     }
 
     @Override
