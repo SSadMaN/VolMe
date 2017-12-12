@@ -72,8 +72,8 @@ public class AddEventForm extends AppCompatActivity {
                 Event oneevent = new Event(mEditEventOrgName.getText().toString(), mEditEventTitle.getText().toString(), mEditEventDescription.getText().toString(), mEditEventDate.getText().toString(), mEditEventLocation.getText().toString(), mEditEventTag.getSelectedItem().toString());
                 mEventsDatabaseReference.push().setValue(oneevent);
 
-                Intent go_back_to_organizator_screen = new Intent(AddEventForm.this, Organizator_main.class);
-                startActivity(go_back_to_organizator_screen);
+                Intent go_back_to_main_menu = new Intent(AddEventForm.this, home.class);
+                startActivity(go_back_to_main_menu);
                 overridePendingTransition(0, 0);
 
 

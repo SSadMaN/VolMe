@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,6 +25,7 @@ public class EventActivity extends AppCompatActivity {
 
 
     private Event newevent;
+    private ImageView delete_event;
     private TextView event_title;
     private TextView event_organizator;
     private TextView event_description;
@@ -38,11 +40,13 @@ public class EventActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
 
+
         // Initialize Firebase components
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mEventsDatabaseReference = mFirebaseDatabase.getReference().child("events");
 
         // Initialize references to views
+        delete_event = findViewById(R.id.delete_event);
         event_title = findViewById(R.id.name);
         event_organizator = findViewById(R.id.organizator_text);
         event_description = findViewById(R.id.event_description);
@@ -51,6 +55,15 @@ public class EventActivity extends AppCompatActivity {
         event_tag = findViewById(R.id.tag_text);
 
         event_key = getIntent().getStringExtra("key");
+
+        delete_event.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mEventsDatabaseReference.child(event_key).removeValue();
+                finish();
+
+            }
+        });
 
         // Event Title
         DatabaseReference titleref = mEventsDatabaseReference.child(event_key).child("event_title");

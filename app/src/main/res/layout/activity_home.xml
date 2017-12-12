@@ -36,6 +36,7 @@
             android:textColor="@android:color/white"/>
 
         <ImageView
+            android:id="@+id/sign_out"
             android:layout_width="0dp"
             android:layout_height="29dp"
             android:layout_weight="1"
@@ -134,33 +135,50 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/home_button"
             android:layout_width="0dp"
-            android:layout_height="23dp"
+            android:layout_height="22sp"
+            android:layout_marginLeft="10sp"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/home_interface_icon"/>
+            android:src="@drawable/home_interface_icon" />
 
         <ImageView
             android:layout_width="0dp"
-            android:layout_height="23dp"
+            android:layout_height="22sp"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/double_chat_icon"/>
+            android:src="@drawable/heart_icon" />
 
         <ImageView
+            android:id="@+id/open_event_addform"
             android:layout_width="0dp"
-            android:layout_height="23dp"
+            android:layout_height="22sp"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/gift_new_icon"/>
+            android:src="@drawable/add" />
 
         <ImageView
+            android:id="@+id/bonuses_button"
             android:layout_width="0dp"
-            android:layout_height="23dp"
+            android:layout_height="22sp"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/user_profile_icon"/>
+            android:src="@drawable/gift_icon" />
+
+
+
+        <ImageView
+            android:id="@+id/profile_button"
+            android:layout_width="0dp"
+            android:layout_height="22sp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/user_profile_icon"
+            android:layout_marginRight="10sp"/>
+
     </LinearLayout>
+
 
 </RelativeLayout>
 
