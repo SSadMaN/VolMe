@@ -1,18 +1,15 @@
 package sadman.volme;
 
-import android.nfc.Tag;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -20,12 +17,17 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-public class EventActivity extends AppCompatActivity {
+import java.util.Arrays;
+
+public class Activity_Event extends AppCompatActivity {
 
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mEventsDatabaseReference;
+
+    private DatabaseReference users;
 
 
     private ImageView delete_event;
@@ -37,10 +39,17 @@ public class EventActivity extends AppCompatActivity {
     private TextView event_data;
     private TextView event_location;
     private TextView event_tag;
+    private TextView subscribers_list;
+    private String username;
     private String event_key;
     private String user_Uid;
+    private String fuckoff = "fudgfkl";
+    private String newly_added_user_key;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
+    private CountDownTimer timer;
+
+    private static final int RC_SIGN_IN = 1;
 
 
     @Override
@@ -48,7 +57,7 @@ public class EventActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
 
-
+        event_key = getIntent().getStringExtra("event_key");
         // Initialize Firebase components
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mEventsDatabaseReference = mFirebaseDatabase.getReference().child("events");
@@ -64,9 +73,10 @@ public class EventActivity extends AppCompatActivity {
         event_tag = findViewById(R.id.tag_text);
         like_event = findViewById(R.id.like);
         like_event_full = findViewById(R.id.like_full);
+        subscribers_list = findViewById(R.id.subscribers_list_button);
 
 
-        event_key = getIntent().getStringExtra("key");
+
 
         delete_event.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,9 +101,39 @@ public class EventActivity extends AppCompatActivity {
                     // authenticate with your backend server, if you have one. Use
                     // FirebaseUser.getToken() instead.
                     user_Uid = user.getUid();
+                    username = user.getDisplayName();
+
+                    Query query = mEventsDatabaseReference.child(event_key).child("subscribers").orderByChild("userUid").equalTo(user_Uid);
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            if(dataSnapshot.exists()){
+                                like_event.setVisibility(View.INVISIBLE);
+                                like_event_full.setVisibility(View.VISIBLE);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+                }else {
+                    // user is logged out
+                    startActivityForResult(
+                            AuthUI.getInstance()
+                                    .createSignInIntentBuilder()
+                                    .setIsSmartLockEnabled(true)
+                                    .setAvailableProviders(
+                                            Arrays.asList(
+                                                    new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build(),
+                                                    new AuthUI.IdpConfig.Builder(AuthUI.FACEBOOK_PROVIDER).build()))
+                                    .build(),
+                            RC_SIGN_IN);
                 }
             }
         };
+
 
         // Event Title
         DatabaseReference titleref = mEventsDatabaseReference.child(event_key).child("event_title");
@@ -173,14 +213,51 @@ public class EventActivity extends AppCompatActivity {
         });
 
 
+        // set buttons initial visibility
+        users = mEventsDatabaseReference.child(event_key).child("subscribers");
+        timer = new CountDownTimer(3000,1000) {
+            @Override
+            public void onTick(long l) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                users.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.child(user_Uid).exists()){
+                            like_event.setVisibility(View.INVISIBLE);
+                            like_event_full.setVisibility(View.VISIBLE);
+                        } else {
+                            like_event.setVisibility(View.VISIBLE);
+                            like_event_full.setVisibility(View.INVISIBLE);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        };
+
+
+
+        // check if user is already subscribed
+
+
+
         //set like button to add users Uid to event's database
         like_event.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mEventsDatabaseReference.child(event_key).child("subscribers").setValue(user_Uid.toString());
+                User newSub = new User(username,null,user_Uid);
+                mEventsDatabaseReference.child(event_key).child("subscribers").push().setValue(newSub);
                 like_event.setVisibility(View.INVISIBLE);
                 like_event_full.setVisibility(View.VISIBLE);
-                Toast.makeText(EventActivity.this, "subscribed", Toast.LENGTH_LONG).show();}
+               }
 
         });
 
@@ -188,10 +265,19 @@ public class EventActivity extends AppCompatActivity {
         like_event_full.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mEventsDatabaseReference.child(event_key).child("subscribers").removeValue();
+                mEventsDatabaseReference.child(event_key).child("subscribers").child(newly_added_user_key).removeValue();
                 like_event.setVisibility(View.VISIBLE);
                 like_event_full.setVisibility(View.INVISIBLE);
 
+            }
+        });
+
+        subscribers_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent subscribers_list_intent = new Intent(Activity_Event.this, List_Subscribers.class);
+                subscribers_list_intent.putExtra("event_key", event_key);
+                startActivity(subscribers_list_intent);
             }
         });
     }

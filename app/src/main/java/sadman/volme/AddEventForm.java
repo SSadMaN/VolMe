@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Spinner;
 
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -16,9 +15,6 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by sadman on 05/12/17.
@@ -72,7 +68,7 @@ public class AddEventForm extends AppCompatActivity {
                 Event oneevent = new Event(mEditEventOrgName.getText().toString(), mEditEventTitle.getText().toString(), mEditEventDescription.getText().toString(), mEditEventDate.getText().toString(), mEditEventLocation.getText().toString(), mEditEventTag.getSelectedItem().toString());
                 mEventsDatabaseReference.push().setValue(oneevent);
 
-                Intent go_back_to_main_menu = new Intent(AddEventForm.this, home.class);
+                Intent go_back_to_main_menu = new Intent(AddEventForm.this, Activity_home.class);
                 startActivity(go_back_to_main_menu);
                 overridePendingTransition(0, 0);
 

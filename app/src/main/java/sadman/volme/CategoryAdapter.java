@@ -23,11 +23,11 @@ public class CategoryAdapter extends FragmentPagerAdapter{
     @Override
     public Fragment getItem(int position){
         if (position == 0){
-            return new ThisWeekFragment();
+            return new Fragment_main_Recent();
         } else if (position == 1){
-            return new ThisMonthFragment();
+            return new Fragment_main_Subscribed();
         } else {
-            return new PermanentFragment();
+            return new Fragment_main_Saved();
         }
     }
 

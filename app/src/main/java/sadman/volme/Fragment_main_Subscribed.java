@@ -1,46 +1,29 @@
 package sadman.volme;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
-
-
-public class ThisWeekFragment extends Fragment{
-    public String userUid;
-    public String uid;
+public class Fragment_main_Subscribed extends Fragment {
 
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mEventsDatabaseReference;
     private FirebaseListAdapter<Event> mAdapter;
     private ListView mEventListView;
 
-
-
-    public ThisWeekFragment(){
-        //requires empty public constructor
+    public Fragment_main_Subscribed(){
     }
 
 
@@ -53,17 +36,11 @@ public class ThisWeekFragment extends Fragment{
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mEventsDatabaseReference = mFirebaseDatabase.getReference().child("events");
 
-
-
-
-
-
-
         // Initialize references to views
         mEventListView = (ListView) rootView.findViewById(R.id.eventcard_list);
 
 
-        Query query = FirebaseDatabase.getInstance().getReference().child("events");
+        /*Query query = FirebaseDatabase.getInstance().getReference().child("events");
 
         FirebaseListOptions<Event> options =
                 new FirebaseListOptions.Builder<Event>()
@@ -90,19 +67,18 @@ public class ThisWeekFragment extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 String itemkey = mAdapter.getRef(position).getKey();
-                //Toast.makeText(getActivity().getApplicationContext(), itemkey, Toast.LENGTH_SHORT).show();
 
-                Intent event_deployed_activity = new Intent(getActivity(), EventActivity.class);
+                Intent event_deployed_activity = new Intent(getActivity(), Activity_Event.class);
 
                 event_deployed_activity.putExtra("key", itemkey);
-                event_deployed_activity.putExtra("keyu", uid);
 
                 startActivity(event_deployed_activity);
                 getActivity().overridePendingTransition(0, 0);
             }
         });
-        return rootView;
 
+        */
+        return rootView;/*
     }
 
     @Override
@@ -116,7 +92,7 @@ public class ThisWeekFragment extends Fragment{
     public void onStop() {
         super.onStop();
         mAdapter.stopListening();
+    }*/
+
     }
-
-
 }

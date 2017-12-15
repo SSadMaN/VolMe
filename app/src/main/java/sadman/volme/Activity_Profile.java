@@ -11,7 +11,7 @@ import android.widget.TextView;
  * Created by sadman on 11/12/17.
  */
 
-public class ProfileActivity extends AppCompatActivity {
+public class Activity_Profile extends AppCompatActivity {
 
     private String name;
     private String email;
@@ -31,7 +31,7 @@ public class ProfileActivity extends AppCompatActivity {
         bonuses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent add_event_form = new Intent(ProfileActivity.this, BonusesActivity.class);
+                Intent add_event_form = new Intent(Activity_Profile.this, Activity_Bonuses.class);
                 startActivity(add_event_form);
                 overridePendingTransition(0, 0);
             }
@@ -41,7 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
         gethome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent add_event_form = new Intent(ProfileActivity.this, home.class);
+                Intent add_event_form = new Intent(Activity_Profile.this, Activity_home.class);
                 startActivity(add_event_form);
                 overridePendingTransition(0, 0);
             }
@@ -51,7 +51,7 @@ public class ProfileActivity extends AppCompatActivity {
         addevent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent add_event_form = new Intent(ProfileActivity.this, AddEventForm.class);
+                Intent add_event_form = new Intent(Activity_Profile.this, AddEventForm.class);
                 startActivity(add_event_form);
                 overridePendingTransition(0, 0);
             }

@@ -1,6 +1,5 @@
 package sadman.volme;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -8,20 +7,13 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
-import com.google.android.gms.auth.api.Auth;
 //import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 //import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptionsExtension;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -32,11 +24,9 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Arrays;
-import java.util.List;
 
 
-
-public class home extends AppCompatActivity {
+public class Activity_home extends AppCompatActivity {
 
     public String name;
     public String surname;
@@ -70,7 +60,7 @@ public class home extends AppCompatActivity {
         get_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent prof_mainIntent = new Intent(home.this, ProfileActivity.class);
+                Intent prof_mainIntent = new Intent(Activity_home.this, Activity_Profile.class);
                 prof_mainIntent.putExtra("name", name);
                 prof_mainIntent.putExtra("email", email);
                 prof_mainIntent.putExtra("keyu", uid);
@@ -83,7 +73,7 @@ public class home extends AppCompatActivity {
         addeventform.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent add_event_form = new Intent(home.this, AddEventForm.class);
+                Intent add_event_form = new Intent(Activity_home.this, AddEventForm.class);
                 startActivity(add_event_form);
                 overridePendingTransition(0, 0);
             }
@@ -93,7 +83,7 @@ public class home extends AppCompatActivity {
         bonuses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent add_event_form = new Intent(home.this, BonusesActivity.class);
+                Intent add_event_form = new Intent(Activity_home.this, Activity_Bonuses.class);
                 startActivity(add_event_form);
                 overridePendingTransition(0, 0);
             }
@@ -128,8 +118,8 @@ public class home extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
 
-       /* mGoogleApiClient = new GoogleApiClient.Builder(home.this)
-                .enableAutoManage(home.this ,
+       /* mGoogleApiClient = new GoogleApiClient.Builder(Activity_home.this)
+                .enableAutoManage(Activity_home.this ,
                         new GoogleApiClient.OnConnectionFailedListener() {
                             @Override
                             public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {

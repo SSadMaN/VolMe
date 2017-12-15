@@ -1,8 +1,6 @@
 package sadman.volme;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,17 +16,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public class ThisMonthFragment extends Fragment {
+
+public class Fragment_main_Recent extends Fragment{
+    public String userUid;
+    public String uid;
 
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mEventsDatabaseReference;
     private FirebaseListAdapter<Event> mAdapter;
     private ListView mEventListView;
 
-    public ThisMonthFragment(){
+
+
+    public Fragment_main_Recent(){
+        //requires empty public constructor
     }
 
 
@@ -40,6 +42,12 @@ public class ThisMonthFragment extends Fragment {
         // Initialize Firebase components
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mEventsDatabaseReference = mFirebaseDatabase.getReference().child("events");
+
+
+
+
+
+
 
         // Initialize references to views
         mEventListView = (ListView) rootView.findViewById(R.id.eventcard_list);
@@ -72,17 +80,19 @@ public class ThisMonthFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 String itemkey = mAdapter.getRef(position).getKey();
+                //Toast.makeText(getActivity().getApplicationContext(), itemkey, Toast.LENGTH_SHORT).show();
 
-                Intent event_deployed_activity = new Intent(getActivity(), EventActivity.class);
+                Intent event_deployed_activity = new Intent(getActivity(), Activity_Event.class);
 
-                event_deployed_activity.putExtra("key", itemkey);
+                event_deployed_activity.putExtra("event_key", itemkey);
+                event_deployed_activity.putExtra("keyu", uid);
 
                 startActivity(event_deployed_activity);
                 getActivity().overridePendingTransition(0, 0);
             }
         });
-
         return rootView;
+
     }
 
     @Override

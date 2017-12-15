@@ -1,10 +1,7 @@
 package sadman.volme;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,24 +16,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class PermanentFragment extends Fragment {
+public class Fragment_main_Saved extends Fragment {
 
      private FirebaseDatabase mFirebaseDatabase;
      private DatabaseReference mEventsDatabaseReference;
      private FirebaseListAdapter<Event> mAdapter;
      private ListView mEventListView;
 
-     public PermanentFragment(){
+     public Fragment_main_Saved(){
      }
 
 
      @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
          View rootView = inflater.inflate(R.layout.eventcard_list, container, false);
-          // Initialize Firebase components
+         /* // Initialize Firebase components
           mFirebaseDatabase = FirebaseDatabase.getInstance();
           mEventsDatabaseReference = mFirebaseDatabase.getReference().child("events");
 
@@ -72,7 +66,7 @@ public class PermanentFragment extends Fragment {
              public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                  String itemkey = mAdapter.getRef(position).getKey();
 
-                 Intent event_deployed_activity = new Intent(getActivity(), EventActivity.class);
+                 Intent event_deployed_activity = new Intent(getActivity(), Activity_Event.class);
 
                  event_deployed_activity.putExtra("key", itemkey);
                  
@@ -81,7 +75,8 @@ public class PermanentFragment extends Fragment {
              }
          });
 
-          return rootView;
+         */
+         return rootView;/*
      }
 
      @Override
@@ -95,7 +90,7 @@ public class PermanentFragment extends Fragment {
      public void onStop() {
           super.onStop();
           mAdapter.stopListening();
+     }*/
+
      }
-
-
 }

@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".home">
+        <activity android:name=".Activity_home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,15 +17,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddEventForm" />
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".Activity_Profile" />
         <activity
-            android:name=".BonusesActivity"
+            android:name=".Activity_Bonuses"
             android:label="@string/title_activity_bonuses"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".EventActivity"
+            android:name=".Activity_Event"
             android:label="@string/title_activity_event"
             android:theme="@style/AppTheme"></activity>
+        <activity android:name=".List_Subscribers"/>
     </application>
 
 </manifest>
