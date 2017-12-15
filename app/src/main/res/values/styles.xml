@@ -9,7 +9,13 @@
 
     </style>
 
+    <style name="AppTheme.RoundedCornerMaterialButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/rounded_shape</item>
+    </style>
 
+    <style name="AppTheme.RoundedCornerMaterialButtonMessanger" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/rounded_messanger</item>
+    </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

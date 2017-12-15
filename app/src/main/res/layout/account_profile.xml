@@ -145,7 +145,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Прив'язати інший профіль на Facebook"
+                android:text="Вийти зі свого профілю"
                 android:background="@color/colorPrimaryDark"/>
 
         </LinearLayout>

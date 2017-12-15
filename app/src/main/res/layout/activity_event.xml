@@ -8,6 +8,36 @@
     android:orientation="vertical"
     tools:context="sadman.volme.Activity_home">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10sp">
+
+        <Button
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:text="@string/icon_like"
+            android:fontFamily="@font/ionicons"
+            android:textColor="@android:color/white"
+            android:textSize="27sp"
+            android:layout_margin="10sp"
+            style="@style/AppTheme.RoundedCornerMaterialButton"/>
+
+        <Button
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:text="@string/icon_chat"
+            android:fontFamily="@font/ionicons"
+            android:textColor="@android:color/white"
+            android:textSize="27sp"
+            android:layout_margin="10sp"
+            style="@style/AppTheme.RoundedCornerMaterialButtonMessanger"/>
+    </LinearLayout>
+
 
     <RelativeLayout
         android:id="@+id/bonuses"
@@ -56,6 +86,7 @@
         android:layout_height="match_parent"
         android:layout_above="@id/subscribers_bar"
         android:layout_below="@id/bonuses"
+        android:layout_below="@id/event_cover"
         android:orientation="vertical">
 
         <TextView
@@ -113,6 +144,9 @@
                 android:textColor="@android:color/darker_gray"
                 android:layout_height="match_parent"
                 tools:text="Арена Львів, вулиця Стрийська, 199, Львів"/></RelativeLayout>
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                tools:text="Арена Львів, вул. Стрийська, 199, Львів"/></RelativeLayout>
 
         <RelativeLayout
         android:id="@+id/calendar"
@@ -201,6 +235,8 @@
             android:layout_toLeftOf="@id/like"/>
 
     </RelativeLayout>
+
+
 
 
 
