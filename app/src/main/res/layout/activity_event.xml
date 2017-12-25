@@ -9,6 +9,43 @@
     tools:context="sadman.volme.Activity_home">
 
 
+
+
+        <Button
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:text="@string/icon_like"
+            android:fontFamily="@font/ionicons"
+            android:textColor="@android:color/white"
+            android:textSize="27sp"
+            android:layout_margin="10sp"
+            style="@style/AppTheme.RoundedCornerMaterialButton"/>
+
+        <Button
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:text="@string/icon_chat"
+        android:fontFamily="@font/ionicons"
+        android:textColor="@android:color/white"
+        android:textSize="27sp"
+        android:layout_margin="10sp"
+        style="@style/AppTheme.RoundedCornerMaterialButtonMessanger"/>
+
+
+        <Button
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:text="@string/icon_followers"
+            android:fontFamily="@font/ionicons"
+            android:textColor="@android:color/white"
+            android:textSize="27sp"
+            android:layout_margin="10sp"
+            style="@style/AppTheme.RoundedCornerMaterialButtonFollow"/>
+
+
+    </LinearLayout>
+
+
     <RelativeLayout
         android:id="@+id/bonuses"
         android:layout_width="match_parent"
