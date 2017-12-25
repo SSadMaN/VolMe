@@ -14,4 +14,12 @@
     <string name="icon_like">&#xf388;</string>
     <string name="icon_chat">&#xf11a;</string>
 
+    <string-array name="events_array">
+        <item>Фестивалі</item>
+        <item>Екологія</item>
+        <item>Допомога тваринам</item>
+        <item>Допомога дітям</item>
+        <item>Освіта</item>
+    </string-array>
+
 </resources>

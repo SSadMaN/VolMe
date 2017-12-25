@@ -27,6 +27,7 @@
             android:label="@string/title_activity_event"
             android:theme="@style/AppTheme"></activity>
         <activity android:name=".List_Subscribers"/>
+        <activity android:name=".Activity_Sub_Profile"/>
     </application>
 
 </manifest>
