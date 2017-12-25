@@ -11,7 +11,8 @@
     <string name="icon_add">&#xf359;</string>
     <string name="icon_org">&#xf3a0;</string>
     <string name="icon_location">&#xf3a3;</string>
-    <string name="icon_like">&#xf388;</string>
+    <string name="icon_unlike">&#xf388;</string>
+    <string name="icon_like">&#xf387;</string>
     <string name="icon_chat">&#xf11a;</string>
-
+    <string name="icon_followers">&#xf47c;</string>
 </resources>

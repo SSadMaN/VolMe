@@ -19,6 +19,8 @@
         android:layout_alignParentRight="true"
         android:layout_margin="10sp">
 
+
+
         <Button
             android:layout_width="50sp"
             android:layout_height="50sp"
@@ -30,14 +32,27 @@
             style="@style/AppTheme.RoundedCornerMaterialButton"/>
 
         <Button
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:text="@string/icon_chat"
+        android:fontFamily="@font/ionicons"
+        android:textColor="@android:color/white"
+        android:textSize="27sp"
+        android:layout_margin="10sp"
+        style="@style/AppTheme.RoundedCornerMaterialButtonMessanger"/>
+
+
+        <Button
             android:layout_width="50sp"
             android:layout_height="50sp"
-            android:text="@string/icon_chat"
+            android:text="@string/icon_followers"
             android:fontFamily="@font/ionicons"
             android:textColor="@android:color/white"
             android:textSize="27sp"
             android:layout_margin="10sp"
-            style="@style/AppTheme.RoundedCornerMaterialButtonMessanger"/>
+            style="@style/AppTheme.RoundedCornerMaterialButtonFollow"/>
+
+
     </LinearLayout>
 
 
