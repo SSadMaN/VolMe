@@ -113,7 +113,6 @@ public class Activity_Profile extends AppCompatActivity {
                             telephone_edittext.setText(telephone_textview.getText().toString());
                             change_info.setVisibility(View.INVISIBLE);
                             save_info.setVisibility(View.VISIBLE);
-                            Toast.makeText(Activity_Profile.this, userkey, Toast.LENGTH_SHORT).show();
                         }
                     });
 
@@ -151,8 +150,10 @@ public class Activity_Profile extends AppCompatActivity {
                     telref.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            telephone_textview.setText(dataSnapshot.getValue(String.class));
-                            telephone_edittext.setText(dataSnapshot.getValue(String.class));
+                            if (dataSnapshot.getValue(String.class) != "") {
+                                telephone_textview.setText(dataSnapshot.getValue(String.class));
+                                telephone_edittext.setText(dataSnapshot.getValue(String.class));
+                            }
                         }
 
                         @Override

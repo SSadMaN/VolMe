@@ -44,7 +44,7 @@
         android:textColor="@android:color/darker_gray"
         android:textSize="11dp"
         android:ellipsize="end"
-        android:maxLines="3"
+        android:maxLines="2"
         tools:text="Екологічна акція від студентів Української академії лідерства. УАЛ - це десятимісячна програма неакадемічного навчання ..." />
 
     <RelativeLayout
