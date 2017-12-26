@@ -22,6 +22,7 @@ public class Event {
         this.event_data = event_data;
         this.event_location = event_location;
         this.event_tag = event_tag;
+
     }
 
     public String getOrganization_name() {return organization_name;}
@@ -41,5 +42,6 @@ public class Event {
 
     public String getEvent_tag() {return event_tag;}
     public void setEvent_tag(String event_tag) {this.event_tag = event_tag;}
+
 
 }

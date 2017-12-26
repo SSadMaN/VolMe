@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,16 +34,24 @@ public class Activity_Sub_Profile extends AppCompatActivity {
         user_Uid = getIntent().getStringExtra("Sub_uId");
         mUserRef = FirebaseDatabase.getInstance().getReference().child("user");
 
-        Query query = mUserRef.orderByChild("userUid").equalTo(user_Uid);
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+
+
+        mUserRef = FirebaseDatabase.getInstance().getReference().child("users");
+
+        Query query1 = mUserRef.orderByChild("userUid").equalTo(user_Uid);
+        query1.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(user_Uid != null){
-                user_key = dataSnapshot.getKey();
-                Toast.makeText(Activity_Sub_Profile.this, user_key+"   useruid:  "+user_Uid, Toast.LENGTH_LONG).show();}
+                    user_key = dataSnapshot.getRef().child("users").getKey();
+                    Toast.makeText(Activity_Sub_Profile.this, user_key, Toast.LENGTH_SHORT).show();
+                }
             }
+
             @Override
-            public void onCancelled(DatabaseError databaseError) {}
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
         });
 
         // get subscriber's name

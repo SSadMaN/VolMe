@@ -9,13 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity_home">
+        <activity android:name=".Activity_Started">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activity_home"/>
         <activity android:name=".AddEventForm" />
         <activity android:name=".Activity_Profile" />
         <activity
@@ -29,5 +30,6 @@
         <activity android:name=".List_Subscribers"/>
         <activity android:name=".Activity_Sub_Profile"/>
     </application>
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
 
 </manifest>

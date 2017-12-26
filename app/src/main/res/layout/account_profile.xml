@@ -101,22 +101,38 @@
         </LinearLayout>
 
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5sp">
 
             <TextView
+
                 android:gravity="center_vertical"
                 android:textSize="20dp"
-                android:id="@+id/profile_sname"
+                android:id="@+id/profile_tel"
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:textColor="@android:color/darker_gray"
-                tools:text="Декапрієнко" />
+                tools:text="Декапрієнко"
+                android:visibility="visible"/>
 
-        </LinearLayout>
+            <EditText
+                android:maxLength="10"
+                android:inputType="phone"
+                android:hint="Enter your telephone number"
+                android:gravity="center_vertical"
+                android:textSize="20dp"
+                android:id="@+id/profile_tel_edit"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textColor="@android:color/darker_gray"
+                tools:text="Декапрієнко"
+                android:visibility="invisible" />
+
+        </RelativeLayout>
 
 
         <LinearLayout
@@ -137,18 +153,27 @@
         </LinearLayout>
 
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55sp"
             android:layout_marginHorizontal="70sp">
 
             <Button
+                android:id="@+id/change_info_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Вийти зі свого профілю"
+                android:text="Змінити дані"
                 android:background="@color/colorPrimaryDark"/>
 
-        </LinearLayout>
+            <Button
+                android:id="@+id/save_info_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Зберегти дані"
+                android:background="@color/colorPrimaryDark"
+                android:visibility="invisible"/>
+
+        </RelativeLayout>
 
 
 

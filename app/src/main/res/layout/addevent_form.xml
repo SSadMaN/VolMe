@@ -48,88 +48,90 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_below="@id/top_action_bar"
-        android:background="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/top_action_bar"
         android:layout_marginHorizontal="10sp"
-        android:layout_marginTop="100sp">
+        android:layout_marginTop="100sp"
+        android:background="@android:color/white">
 
         <EditText
             android:id="@+id/add_event_title_name"
-            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:hint="Add event title"
             android:textColor="@android:color/black"
-            tools:text="Add event title"
             android:textColorHint="@android:color/darker_gray"
-            android:hint="Add event title"/>
+            tools:text="Add event title" />
 
         <EditText
             android:id="@+id/add_organization_name"
-            android:layout_below="@id/add_event_title_name"
-            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:textColor="@android:color/black"
+            android:layout_below="@id/add_event_title_name"
+            android:layout_margin="10dp"
             android:hint="Add event organization name"
+            android:textColor="@android:color/black"
             android:textColorHint="@android:color/darker_gray"
-            tools:text="Add event organization name"/>
+            tools:text="Add event organization name" />
 
         <EditText
             android:id="@+id/add_event_description"
-            android:layout_below="@id/add_organization_name"
-            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
+            android:layout_below="@id/add_organization_name"
+            android:layout_margin="10dp"
             android:hint="Add event description"
+            android:textColor="@android:color/black"
             android:textColorHint="@android:color/darker_gray"
-            tools:text="Add event description"/>
+            tools:text="Add event description" />
 
         <EditText
             android:id="@+id/add_event_date"
-            android:layout_below="@id/add_event_description"
-            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:textColor="@android:color/black"
+            android:layout_below="@id/add_event_description"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:focusable="false"
             android:hint="Add event date"
+            android:textColor="@android:color/black"
             android:textColorHint="@android:color/darker_gray"
-            tools:text="Add event date"/>
+            tools:text="Add event date" />
 
 
         <EditText
             android:id="@+id/add_event_location"
-            android:layout_below="@id/add_event_date"
-            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_below="@id/add_event_date"
+            android:layout_margin="10dp"
+            android:hint="Add event location"
             android:textColor="@android:color/black"
             android:textColorHint="@android:color/darker_gray"
-            android:hint="Add event location"
-            tools:text="Add event location"/>
+            tools:text="Add event location" />
 
         <Spinner
             android:id="@+id/add_event_tag"
-            android:layout_below="@id/add_event_location"
-            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:textColorHint="@android:color/black"
+            android:layout_below="@id/add_event_location"
+            android:layout_margin="10dp"
             android:hint="Місце"
-            tools:text="Місце"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/black"
+            tools:text="Місце" />
 
         <Button
             android:id="@+id/submit_event_form"
-            android:layout_margin="20dp"
-            android:layout_below="@id/add_event_tag"
-            android:background="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="Опублікувати"/>
+            android:layout_below="@id/add_event_tag"
+            android:layout_margin="20dp"
+            android:background="@color/colorPrimary"
+            android:text="Опублікувати" />
 
     </RelativeLayout>
 </RelativeLayout>

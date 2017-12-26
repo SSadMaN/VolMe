@@ -14,6 +14,7 @@
     <string name="icon_unlike">&#xf388;</string>
     <string name="icon_like">&#xf387;</string>
     <string name="icon_chat">&#xf11a;</string>
+    <string name="icon_android_call">&#xf2d2;</string>
 
     <string-array name="events_array">
         <item>Фестивалі</item>
@@ -21,6 +22,10 @@
         <item>Допомога тваринам</item>
         <item>Допомога дітям</item>
         <item>Освіта</item>
+        <item>IT</item>
+        <item>Спорт</item>
+        <item>Допомога армії</item>
+        <item>Культура</item>
     </string-array>
 
     <string name="icon_followers">&#xf47c;</string>

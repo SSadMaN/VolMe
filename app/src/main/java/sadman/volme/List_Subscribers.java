@@ -66,7 +66,7 @@ public class List_Subscribers extends AppCompatActivity {
 
         mSubscribersListView.setAdapter(mAdapter);
 
-        mSubscribersListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       /* mSubscribersListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 sub_key = mAdapter.getRef(position).getKey();
@@ -74,7 +74,7 @@ public class List_Subscribers extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         sub_uId = dataSnapshot.getValue(String.class);
-                        Toast.makeText(List_Subscribers.this, sub_uId, Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(List_Subscribers.this, sub_uId, Toast.LENGTH_SHORT).show();
                     }
                     @Override
                     public void onCancelled(DatabaseError databaseError) {}
@@ -88,6 +88,7 @@ public class List_Subscribers extends AppCompatActivity {
                 List_Subscribers.this.overridePendingTransition(0, 0);
             }
         });
+        */
     }
 
     @Override

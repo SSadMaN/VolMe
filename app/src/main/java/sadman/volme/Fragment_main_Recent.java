@@ -47,10 +47,6 @@ public class Fragment_main_Recent extends Fragment{
 
 
 
-
-
-
-
         // Initialize references to views
         mEventListView = (ListView) rootView.findViewById(R.id.eventcard_list);
 
@@ -76,7 +72,13 @@ public class Fragment_main_Recent extends Fragment{
 
         };
 
+        mLayoutManager = new LinearLayoutManager(getActivity());
+        mLayoutManager.setReverseLayout(true);
+        mLayoutManager.setStackFromEnd(true);
+
+        mEventListView.setStackFromBottom(false);
         mEventListView.setAdapter(mAdapter);
+
 
         mEventListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
