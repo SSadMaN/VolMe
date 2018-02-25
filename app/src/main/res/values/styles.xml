@@ -6,6 +6,23 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
     </style>
+
+    <style name="AppTheme.RoundedCornerMaterialButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/rounded_shape</item>
+    </style>
+
+    <style name="AppTheme.RoundedCornerMaterialButtonMessanger" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/rounded_messanger</item>
+    </style>
+
+    <style name="AppTheme.RoundedCornerMaterialButtonFollow" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/rounded_follow</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
