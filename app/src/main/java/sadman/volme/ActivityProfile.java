@@ -36,14 +36,6 @@ public class ActivityProfile extends AppCompatActivity {
     private String userTelephoneNumber;
 
 
-    //TODO Delete this code
-//    // это будет именем файла настроек
-//    public static final String Newly_added_key = "newlyaddedkey";
-//    public static final String Newly_added_keyx = "newlyaddedkeyx"; // имя кота
-//
-//    SharedPreferences mnewlyaddedkey;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -54,12 +54,7 @@ public class ActivityAddingEventForm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addevent_form);
 
-        //TODO delete this code
-       // mnewlyaddedkey = getSharedPreferences(Newly_added_key, Context.MODE_PRIVATE);
 
-//        if(mnewlyaddedkey.contains(Newly_added_keyx)) {
-//            userkey = mnewlyaddedkey.getString(Newly_added_keyx, "");
-//        }
 
         // Initialize Firebase components
         mFirebaseDatabase = FirebaseDatabase.getInstance();
@@ -172,17 +167,4 @@ public class ActivityAddingEventForm extends AppCompatActivity {
 
         mEditEventDate.setText(sdf.format(myCalendar.getTime()));
     }
-
-    //TODO delete this code
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        mFirebaseAuth.removeAuthStateListener(mAuthStateListener);
-//    }
-//
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        mFirebaseAuth.addAuthStateListener(mAuthStateListener);
-//    }
 }
