@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.Objects;
 
@@ -128,6 +129,10 @@ public class ActivityProfile extends AppCompatActivity {
 
         TextView emailTextView = findViewById(R.id.profile_email);
         emailTextView.setText(email);
+
+        ImageView profileImage = findViewById(R.id.profile_img);
+
+        Picasso.with(this).load(user.getPhotoUrl()).into(profileImage);
 
 
         //Setting listener to change telephone
