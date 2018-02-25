@@ -1,17 +1,22 @@
 package sadman.volme;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by sadman on 13/12/17.
@@ -25,17 +30,16 @@ public class ListSubscribers extends AppCompatActivity {
     private ListView mSubscribersListView;
 
     private String eventKey;
-    private String sub_uId;
-    private String sub_key;
+    private String subscriberUid;
+    private String subscriberInListKey;
     private ImageView sub_imgview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.subscribers_list);
-
-
         eventKey = getIntent().getStringExtra("eventKey");
+
         //Initialize Firebase components
         //TODO: retrieve user id from events/eventID/subscribers!!!!
         mSubscribersDatabaseReference = FirebaseDatabase.getInstance().getReference().child("events").child(eventKey).child("subscribers");
@@ -45,6 +49,7 @@ public class ListSubscribers extends AppCompatActivity {
         mSubscribersListView = findViewById(R.id.subscribers_list_listview);
 
 
+        //-------------------------Setting firebase list adapter------------------------------
         Query query = mSubscribersDatabaseReference;
 
         FirebaseListOptions<User> options =
@@ -52,38 +57,47 @@ public class ListSubscribers extends AppCompatActivity {
                         .setQuery(query, User.class)
                         .setLayout(R.layout.item_user)
                         .build();
-        mAdapter = new FirebaseListAdapter<User>(options){
+        mAdapter = new FirebaseListAdapter<User>(options) {
             @Override
-            protected void populateView(View v, User userview, int position) {
-                ((TextView)v.findViewById(R.id.user_name_textview)).setText(userview.getUser_name());
+            protected void populateView(View v, User user, int position) {
+                ((TextView) v.findViewById(R.id.user_name_textview)).setText(user.getUser_name());
             }
         };
 
         mSubscribersListView.setAdapter(mAdapter);
+        //------------------------------------------------------------------------------------
 
-       /* mSubscribersListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        //Setting listener to click and intent to sub-profile
+        mSubscribersListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                sub_key = mAdapter.getRef(position).getKey();
-                mSubscribersDatabaseReference.child(sub_key).child("userUid").addListenerForSingleValueEvent(new ValueEventListener() {
+                subscriberInListKey = mAdapter.getRef(position).getKey();
+                mSubscribersDatabaseReference.child(subscriberInListKey).child("userUid").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        sub_uId = dataSnapshot.getValue(String.class);
-                       // Toast.makeText(ListSubscribers.this, sub_uId, Toast.LENGTH_SHORT).show();
+                        subscriberUid = dataSnapshot.getValue(String.class);
+                        startSubscriberProfileIntent();
                     }
+
                     @Override
-                    public void onCancelled(DatabaseError databaseError) {}
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
                 });
-
-                Intent event_deployed_activity = new Intent(ListSubscribers.this, Activity_Sub_Profile.class);
-
-                event_deployed_activity.putExtra("Sub_uId", sub_uId);
-
-                startActivity(event_deployed_activity);
-                ListSubscribers.this.overridePendingTransition(0, 0);
             }
         });
-        */
+
+    }
+
+    private void startSubscriberProfileIntent() {
+
+        //-------------------Creating and start SubscriberProfile intent--------------------
+        Intent intentSubscriberProfile = new Intent(ListSubscribers.this, ActivitySubscriberProfile.class);
+
+        intentSubscriberProfile.putExtra("SubscriberUid", subscriberUid);
+
+        startActivity(intentSubscriberProfile);
+        ListSubscribers.this.overridePendingTransition(0, 0);
+        //----------------------------------------------------------------------------------
     }
 
     @Override

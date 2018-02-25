@@ -1,20 +1,15 @@
 package sadman.volme;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
-import com.firebase.ui.database.FirebaseListOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 
 public class FragmentMainSaved extends Fragment {
 
@@ -24,6 +19,7 @@ public class FragmentMainSaved extends Fragment {
      private ListView mEventListView;
 
      public FragmentMainSaved(){
+          //required empty construction
      }
 
 
