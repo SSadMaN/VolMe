@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    tools:context="sadman.volme.Activity_home">
+    tools:context="sadman.volme.ActivityHome">
 
 <ScrollView
     android:layout_width="wrap_content"
@@ -299,7 +299,7 @@
             android:src="@drawable/heart_icon" />
 
         <ImageView
-            android:id="@+id/open_event_addform"
+            android:id="@+id/openEventAddForm"
             android:layout_width="0dp"
             android:layout_height="22sp"
             android:layout_weight="1"

@@ -23,11 +23,11 @@ public class CategoryAdapter extends FragmentPagerAdapter{
     @Override
     public Fragment getItem(int position){
         if (position == 0){
-            return new Fragment_main_Recent();
+            return new FragmentMainRecent();
         } else if (position == 1){
-            return new Fragment_main_Subscribed();
+            return new FragmentMainSubscribed();
         } else {
-            return new Fragment_main_Saved();
+            return new FragmentMainSaved();
         }
     }
 

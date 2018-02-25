@@ -16,14 +16,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
-public class Fragment_main_Saved extends Fragment {
+public class FragmentMainSaved extends Fragment {
 
      private FirebaseDatabase mFirebaseDatabase;
      private DatabaseReference mEventsDatabaseReference;
      private FirebaseListAdapter<Event> mAdapter;
      private ListView mEventListView;
 
-     public Fragment_main_Saved(){
+     public FragmentMainSaved(){
      }
 
 

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context="sadman.volme.Activity_home">
+    tools:context="sadman.volme.ActivityHome">
 
     <LinearLayout
         android:id="@+id/top_action_bar"
@@ -87,7 +87,7 @@
             android:src="@drawable/heart_icon" />
 
         <ImageView
-            android:id="@+id/open_event_addform"
+            android:id="@+id/openEventAddForm"
             android:layout_width="0dp"
             android:layout_height="22sp"
             android:layout_weight="1"

@@ -19,7 +19,7 @@ import com.google.firebase.database.Query;
 
 
 
-public class Fragment_main_Recent extends Fragment{
+public class FragmentMainRecent extends Fragment{
     public String userUid;
     public String uid;
 
@@ -31,7 +31,7 @@ public class Fragment_main_Recent extends Fragment{
 
 
 
-    public Fragment_main_Recent(){
+    public FragmentMainRecent(){
         //requires empty public constructor
     }
 
@@ -48,7 +48,7 @@ public class Fragment_main_Recent extends Fragment{
 
 
         // Initialize references to views
-        mEventListView = (ListView) rootView.findViewById(R.id.eventcard_list);
+        mEventListView = rootView.findViewById(R.id.eventcard_list);
 
 
         Query query = FirebaseDatabase.getInstance().getReference().child("events");
@@ -86,10 +86,10 @@ public class Fragment_main_Recent extends Fragment{
                 String itemkey = mAdapter.getRef(position).getKey();
                 //Toast.makeText(getActivity().getApplicationContext(), itemkey, Toast.LENGTH_SHORT).show();
 
-                Intent event_deployed_activity = new Intent(getActivity(), Activity_Event.class);
+                Intent event_deployed_activity = new Intent(getActivity(), ActivityEvent.class);
 
-                event_deployed_activity.putExtra("event_key", itemkey);
-                event_deployed_activity.putExtra("keyu", uid);
+                event_deployed_activity.putExtra("eventKey", itemkey);
+                //event_deployed_activity.putExtra("keyu", uid);
 
                 startActivity(event_deployed_activity);
                 getActivity().overridePendingTransition(0, 0);

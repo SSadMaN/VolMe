@@ -9,26 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity_Started">
+        <activity android:name=".ActivityLauncher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity_home"/>
-        <activity android:name=".AddEventForm" />
-        <activity android:name=".Activity_Profile" />
+        <activity android:name=".ActivityHome"/>
+        <activity android:name=".ActivityAddingEventForm" />
+        <activity android:name=".ActivityProfile" />
         <activity
-            android:name=".Activity_Bonuses"
+            android:name=".ActivityBonuses"
             android:label="@string/title_activity_bonuses"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Activity_Event"
+            android:name=".ActivityEvent"
             android:label="@string/title_activity_event"
             android:theme="@style/AppTheme"></activity>
-        <activity android:name=".List_Subscribers"/>
-        <activity android:name=".Activity_Sub_Profile"/>
+        <activity android:name=".ListSubscribers"/>
     </application>
     <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
 

@@ -1,29 +1,24 @@
 package sadman.volme;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
-import com.firebase.ui.database.FirebaseListOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 
-public class Fragment_main_Subscribed extends Fragment {
+public class FragmentMainSubscribed extends Fragment {
 
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mEventsDatabaseReference;
     private FirebaseListAdapter<Event> mAdapter;
     private ListView mEventListView;
 
-    public Fragment_main_Subscribed(){
+    public FragmentMainSubscribed(){
     }
 
 
@@ -37,7 +32,7 @@ public class Fragment_main_Subscribed extends Fragment {
         mEventsDatabaseReference = mFirebaseDatabase.getReference().child("events");
 
         // Initialize references to views
-        mEventListView = (ListView) rootView.findViewById(R.id.eventcard_list);
+        mEventListView = rootView.findViewById(R.id.eventcard_list);
 
 
         /*Query query = FirebaseDatabase.getInstance().getReference().child("events");
@@ -68,7 +63,7 @@ public class Fragment_main_Subscribed extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 String itemkey = mAdapter.getRef(position).getKey();
 
-                Intent event_deployed_activity = new Intent(getActivity(), Activity_Event.class);
+                Intent event_deployed_activity = new Intent(getActivity(), ActivityEvent.class);
 
                 event_deployed_activity.putExtra("key", itemkey);
 

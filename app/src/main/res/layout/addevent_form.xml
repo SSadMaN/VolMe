@@ -94,7 +94,7 @@
             android:layout_below="@id/add_event_description"
             android:layout_margin="10dp"
             android:clickable="true"
-            android:focusable="false"
+            android:focusable="true"
             android:hint="Add event date"
             android:textColor="@android:color/black"
             android:textColorHint="@android:color/darker_gray"

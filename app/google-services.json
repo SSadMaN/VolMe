@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1014896234274-82uc1e35uskle7m88rv24p5ej7uj5h16.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sadman.volme",
+            "certificate_hash": "25ac5ab475649f8ba88e2dc4d0b3c53ab5b5548e"
+          }
+        },
+        {
           "client_id": "1014896234274-37lktl5bqtr8i5kpc3c5tillan2r1d4l.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

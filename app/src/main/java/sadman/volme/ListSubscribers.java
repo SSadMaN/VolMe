@@ -1,35 +1,30 @@
 package sadman.volme;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by sadman on 13/12/17.
+ * Edited by Nikita Kiselov 25/02/18
  */
 
-public class List_Subscribers extends AppCompatActivity {
+public class ListSubscribers extends AppCompatActivity {
 
     private DatabaseReference mSubscribersDatabaseReference;
     private FirebaseListAdapter<User> mAdapter;
     private ListView mSubscribersListView;
 
-    private String event_ukey;
+    private String eventKey;
     private String sub_uId;
     private String sub_key;
     private ImageView sub_imgview;
@@ -40,14 +35,14 @@ public class List_Subscribers extends AppCompatActivity {
         setContentView(R.layout.subscribers_list);
 
 
-        event_ukey = getIntent().getStringExtra("event_key");
+        eventKey = getIntent().getStringExtra("eventKey");
         //Initialize Firebase components
         //TODO: retrieve user id from events/eventID/subscribers!!!!
-        mSubscribersDatabaseReference = FirebaseDatabase.getInstance().getReference().child("events").child(event_ukey).child("subscribers");
+        mSubscribersDatabaseReference = FirebaseDatabase.getInstance().getReference().child("events").child(eventKey).child("subscribers");
 
 
         // Initialize references to views
-        mSubscribersListView = (ListView) findViewById(R.id.subscribers_list_listview);
+        mSubscribersListView = findViewById(R.id.subscribers_list_listview);
 
 
         Query query = mSubscribersDatabaseReference;
@@ -74,18 +69,18 @@ public class List_Subscribers extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         sub_uId = dataSnapshot.getValue(String.class);
-                       // Toast.makeText(List_Subscribers.this, sub_uId, Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(ListSubscribers.this, sub_uId, Toast.LENGTH_SHORT).show();
                     }
                     @Override
                     public void onCancelled(DatabaseError databaseError) {}
                 });
 
-                Intent event_deployed_activity = new Intent(List_Subscribers.this, Activity_Sub_Profile.class);
+                Intent event_deployed_activity = new Intent(ListSubscribers.this, Activity_Sub_Profile.class);
 
                 event_deployed_activity.putExtra("Sub_uId", sub_uId);
 
                 startActivity(event_deployed_activity);
-                List_Subscribers.this.overridePendingTransition(0, 0);
+                ListSubscribers.this.overridePendingTransition(0, 0);
             }
         });
         */

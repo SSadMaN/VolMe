@@ -11,7 +11,7 @@ import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Activity_Bonuses extends AppCompatActivity {
+public class ActivityBonuses extends AppCompatActivity {
 
 
     private FirebaseDatabase mFirebaseDatabase;
@@ -26,31 +26,31 @@ public class Activity_Bonuses extends AppCompatActivity {
         setContentView(R.layout.activity_bonuses);
 
 
-        ImageView gethome = (ImageView) findViewById(R.id.get_home_button);
+        ImageView gethome = findViewById(R.id.get_home_button);
         gethome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent add_event_form = new Intent(Activity_Bonuses.this, Activity_home.class);
+                Intent add_event_form = new Intent(ActivityBonuses.this, ActivityHome.class);
                 startActivity(add_event_form);
                 overridePendingTransition(0, 0);
             }
         });
 
-        ImageView getprofile = (ImageView) findViewById(R.id.profile_button);
+        ImageView getprofile = findViewById(R.id.profile_button);
         getprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent add_event_form = new Intent(Activity_Bonuses.this, Activity_Profile.class);
+                Intent add_event_form = new Intent(ActivityBonuses.this, ActivityProfile.class);
                 startActivity(add_event_form);
                 overridePendingTransition(0, 0);
             }
         });
 
-        ImageView addevent = (ImageView) findViewById(R.id.open_event_addform);
+        ImageView addevent = findViewById(R.id.openEventAddForm);
         addevent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent add_event_form = new Intent(Activity_Bonuses.this, AddEventForm.class);
+                Intent add_event_form = new Intent(ActivityBonuses.this, ActivityAddingEventForm.class);
                 startActivity(add_event_form);
                 overridePendingTransition(0, 0);
             }
