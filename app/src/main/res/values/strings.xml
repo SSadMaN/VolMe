@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">VolMe</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_bonuses">BonusesActivity</string>
+    <string name="title_activity_event">EventActivity</string>
+    <string name="icon_arrow_left">&#xf3cf;</string>
+    <string name="icon_calendar">&#xf117;</string>
+    <string name="icon_tag">&#xf139;</string>
+    <string name="icon_add">&#xf359;</string>
+    <string name="icon_org">&#xf3a0;</string>
+    <string name="icon_location">&#xf3a3;</string>
+    <string name="icon_unlike">&#xf388;</string>
+    <string name="icon_like">&#xf387;</string>
+    <string name="icon_chat">&#xf11a;</string>
+    <string name="icon_android_call">&#xf2d2;</string>
+
+    <string-array name="events_array">
+        <item>Фестивалі</item>
+        <item>Екологія</item>
+        <item>Допомога тваринам</item>
+        <item>Допомога дітям</item>
+        <item>Освіта</item>
+        <item>IT</item>
+        <item>Спорт</item>
+        <item>Допомога армії</item>
+        <item>Культура</item>
+    </string-array>
+
+    <string name="icon_followers">&#xf47c;</string>
 </resources>

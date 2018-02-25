@@ -9,13 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".home">
+        <activity android:name=".ActivityLauncher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ActivityHome"/>
+        <activity android:name=".ActivityAddingEventForm" />
+        <activity android:name=".ActivityProfile" />
+        <activity
+            android:name=".ActivityBonuses"
+            android:label="@string/title_activity_bonuses"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ActivityEvent"
+            android:label="@string/title_activity_event"
+            android:theme="@style/AppTheme"></activity>
+        <activity android:name=".ListSubscribers"/>
     </application>
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
 
 </manifest>
