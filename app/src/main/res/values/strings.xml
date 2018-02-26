@@ -29,4 +29,5 @@
     </string-array>
 
     <string name="icon_followers">&#xf47c;</string>
+    <string name="sub_profile">Subscriber profile</string>
 </resources>

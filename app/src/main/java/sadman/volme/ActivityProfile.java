@@ -1,6 +1,7 @@
 package sadman.volme;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -32,6 +33,7 @@ public class ActivityProfile extends AppCompatActivity {
 
     private String name;
     private String email;
+    private Uri profileImage;
     private String userUID;
     private FirebaseAuth mFirebaseAuth;
     private String userTelephoneNumber;
@@ -55,8 +57,8 @@ public class ActivityProfile extends AppCompatActivity {
         name = user.getDisplayName();
         email = user.getEmail();
         userUID = user.getUid();
-
-        //==============================Setting intents for men=============================
+        profileImage = user.getPhotoUrl();
+        //==============================Setting intents for menu=============================
         ImageView bonuses = findViewById(R.id.bonuses_button);
         bonuses.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,7 +138,7 @@ public class ActivityProfile extends AppCompatActivity {
 
 
         //Setting listener to change telephone
-        DatabaseReference telephoneDatabaseReference = FirebaseDatabase.getInstance().getReference().child("user").child(userUID).child("user_tel");
+        DatabaseReference telephoneDatabaseReference = FirebaseDatabase.getInstance().getReference().child("user").child(userUID).child("user_telephone");
         telephoneDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

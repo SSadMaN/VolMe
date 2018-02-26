@@ -18,8 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
 
-
-public class FragmentMainRecent extends Fragment{
+public class FragmentMainRecent extends Fragment {
     public String userUid;
     public String uid;
 
@@ -30,8 +29,7 @@ public class FragmentMainRecent extends Fragment{
     private LinearLayoutManager mLayoutManager;
 
 
-
-    public FragmentMainRecent(){
+    public FragmentMainRecent() {
         //requires empty public constructor
     }
 
@@ -46,7 +44,6 @@ public class FragmentMainRecent extends Fragment{
         mEventsDatabaseReference = mFirebaseDatabase.getReference().child("events");
 
 
-
         // Initialize references to views
         mEventListView = rootView.findViewById(R.id.eventcard_list);
 
@@ -58,15 +55,15 @@ public class FragmentMainRecent extends Fragment{
                         .setQuery(query, Event.class)
                         .setLayout(R.layout.item_event)
                         .build();
-        mAdapter = new FirebaseListAdapter<Event>(options){
+        mAdapter = new FirebaseListAdapter<Event>(options) {
             @Override
             protected void populateView(View v, Event eventview, int position) {
-                ((TextView)v.findViewById(R.id.event_oranisation_name)).setText(eventview.getOrganization_name());
-                ((TextView)v.findViewById(R.id.event_title_name)).setText(eventview.getEvent_title());
-                ((TextView)v.findViewById(R.id.event_quick_description)).setText(eventview.getEvent_description());
-                ((TextView)v.findViewById(R.id.event_date_textview)).setText(eventview.getEvent_data());
-                ((TextView)v.findViewById(R.id.location_textview)).setText(eventview.getEvent_location());
-                ((TextView)v.findViewById(R.id.tag_small_textview)).setText(eventview.getEvent_tag());
+                ((TextView) v.findViewById(R.id.event_oranisation_name)).setText(eventview.getOrganization_name());
+                ((TextView) v.findViewById(R.id.event_title_name)).setText(eventview.getEvent_title());
+                ((TextView) v.findViewById(R.id.event_quick_description)).setText(eventview.getEvent_description());
+                ((TextView) v.findViewById(R.id.event_date_textview)).setText(eventview.getEvent_data());
+                ((TextView) v.findViewById(R.id.location_textview)).setText(eventview.getEvent_location());
+                ((TextView) v.findViewById(R.id.tag_small_textview)).setText(eventview.getEvent_tag());
             }
 
 
@@ -83,15 +80,12 @@ public class FragmentMainRecent extends Fragment{
         mEventListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                String itemkey = mAdapter.getRef(position).getKey();
-                //Toast.makeText(getActivity().getApplicationContext(), itemkey, Toast.LENGTH_SHORT).show();
+                String eventKey = mAdapter.getRef(position).getKey();
 
-                Intent event_deployed_activity = new Intent(getActivity(), ActivityEvent.class);
-
-                event_deployed_activity.putExtra("eventKey", itemkey);
-                //event_deployed_activity.putExtra("keyu", uid);
-
-                startActivity(event_deployed_activity);
+                //Create and start intent to event activity
+                Intent eventDeployedActivity = new Intent(getActivity(), ActivityEvent.class);
+                eventDeployedActivity.putExtra("eventKey", eventKey);
+                startActivity(eventDeployedActivity);
                 getActivity().overridePendingTransition(0, 0);
             }
         });
