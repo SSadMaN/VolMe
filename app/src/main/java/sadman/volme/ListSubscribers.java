@@ -42,7 +42,6 @@ public class ListSubscribers extends AppCompatActivity {
         eventKey = getIntent().getStringExtra("eventKey");
 
         //Initialize Firebase components
-        //TODO: retrieve user id from events/eventID/subscribers!!!!
         mSubscribersDatabaseReference = FirebaseDatabase.getInstance().getReference()
                 .child("events").child(eventKey).child("subscribers");
 

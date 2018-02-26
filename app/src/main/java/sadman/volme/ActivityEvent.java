@@ -120,7 +120,7 @@ public class ActivityEvent extends AppCompatActivity {
         //=========================================HERE=============================================
 
         // Event subscribers
-        Query query = mEventsDatabaseReference.child(eventKey).child("subscribers")
+        final Query query = mEventsDatabaseReference.child(eventKey).child("subscribers")
                 .orderByKey().equalTo(userUid);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -262,6 +262,7 @@ public class ActivityEvent extends AppCompatActivity {
 
 
         //set like button to add users Uid to event's database
+        //TODO add transaction
         likeEvent.setOnClickListener(new View.OnClickListener()
 
         {
@@ -274,8 +275,10 @@ public class ActivityEvent extends AppCompatActivity {
 
                     }
                 });
+
                 likeEvent.setVisibility(View.INVISIBLE);
                 likeEventFull.setVisibility(View.VISIBLE);
+
             }
 
         });

@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -45,6 +46,7 @@ public class ActivityLauncher extends AppCompatActivity {
     private Button mSignInGoogleButton;
 
     private static final int RC_SIGN_IN = 1;
+    private ProgressBar progressBar;
 
 
     @Override
@@ -52,12 +54,19 @@ public class ActivityLauncher extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
+
+        //------------------------------Enabling offline capabilities--------------------------
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         //----------------------------------------------------------------------
         if (mFirebaseUser != null) {
             startActivity(new Intent(ActivityLauncher.this, ActivityHome.class));
         }
         //-----------------------------------------------------------------------
         setContentView(R.layout.activity_started);
+        progressBar = findViewById(R.id.progressBarInAuthorization);
+
+
 
 
         mSignInGoogleButton = findViewById(R.id.sign_in_google_button);
@@ -109,14 +118,14 @@ public class ActivityLauncher extends AppCompatActivity {
                             addUser();
 
                             //finish progress dialog
-                            //progressDialog.dismiss();
+                            progressBar.setVisibility(View.GONE);
 
                             //Starting MainActivity
                             Intent mainIntent = new Intent(ActivityLauncher.this,
                                     ActivityHome.class);
 
                             ActivityLauncher.this.startActivity(mainIntent);
-                            //ActivityLauncher.this.finish();
+                            ActivityLauncher.this.finish();
                         }
                     }
                 });
@@ -124,6 +133,9 @@ public class ActivityLauncher extends AppCompatActivity {
 
 
     private void signIn() {
+
+        //Set visibility of progress bar
+        progressBar.setVisibility(View.VISIBLE);
 
         //Using default builder to construct SignInOptions
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
