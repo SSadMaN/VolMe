@@ -12,16 +12,16 @@ import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by sadman on 18/12/17.
+ * Edited by Nikita Kiselov 25/02/18
  */
 
 public class ActivitySubscriberProfile extends AppCompatActivity {
 
     private DatabaseReference mUserRef;
 
-    private String userUid; //userГid got from sublist
-    private String user_key;
-    private String user_name;
-    private String user_email;
+    private String userUid; //userUid got from sublist
+    private String userName;
+    private String userEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +40,8 @@ public class ActivitySubscriberProfile extends AppCompatActivity {
         mUserRef.child(userUid).child("user_name").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                user_name = dataSnapshot.getValue(String.class);
-                nameTextView.setText(user_name);
+                userName = dataSnapshot.getValue(String.class);
+                nameTextView.setText(userName);
             }
 
             @Override
@@ -53,8 +53,8 @@ public class ActivitySubscriberProfile extends AppCompatActivity {
         mUserRef.child(userUid).child("user_email").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                user_email = dataSnapshot.getValue(String.class);
-                emailTextView.setText(user_email);
+                userEmail = dataSnapshot.getValue(String.class);
+                emailTextView.setText(userEmail);
             }
 
             @Override

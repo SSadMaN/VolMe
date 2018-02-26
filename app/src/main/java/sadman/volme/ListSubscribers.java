@@ -42,7 +42,8 @@ public class ListSubscribers extends AppCompatActivity {
 
         //Initialize Firebase components
         //TODO: retrieve user id from events/eventID/subscribers!!!!
-        mSubscribersDatabaseReference = FirebaseDatabase.getInstance().getReference().child("events").child(eventKey).child("subscribers");
+        mSubscribersDatabaseReference = FirebaseDatabase.getInstance().getReference()
+                .child("events").child(eventKey).child("subscribers");
 
 
         // Initialize references to views
@@ -60,7 +61,7 @@ public class ListSubscribers extends AppCompatActivity {
         mAdapter = new FirebaseListAdapter<User>(options) {
             @Override
             protected void populateView(View v, User user, int position) {
-                ((TextView) v.findViewById(R.id.user_name_textview)).setText(user.getUser_name());
+                ((TextView) v.findViewById(R.id.user_name_textview)).setText(user.getName());
             }
         };
 

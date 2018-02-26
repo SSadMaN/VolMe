@@ -9,6 +9,7 @@ public class User {
     private String name;
     private String email;
     private String userUid;
+    private String userImageURL;
 
     public User(){
 
@@ -20,12 +21,42 @@ public class User {
         this.userUid = userUid;
     }
 
-    public String getUser_name() {return name;}
-    public void setUser_name(String name) {this.name = name;}
+    public User(String name, String email, String userUid, String userImageURL){
+        this.name = name;
+        this.email = email;
+        this.userUid = userUid;
+        this.userImageURL = userImageURL;
+    }
 
-    public String getUser_email() {return email;}
-    public void setUser_email(String email) {this.email = email;}
+    public String getName() {
+        return name;
+    }
 
-    public String getUserUid() {return userUid;}
-    public void setUserUid(String userUid) {this.userUid = userUid;}
+    public String getEmail() {
+        return email;
+    }
+
+    public String getUserUid() {
+        return userUid;
+    }
+
+    public String getUserImageURL() {
+        return userImageURL;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setUserUid(String userUid) {
+        this.userUid = userUid;
+    }
+
+    public void setUserImageURL(String userImageURL) {
+        this.userImageURL = userImageURL;
+    }
 }

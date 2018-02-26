@@ -156,6 +156,7 @@ public class ActivityLauncher extends AppCompatActivity {
         final String name = mFirebaseUser.getDisplayName();
         final String email = mFirebaseUser.getEmail();
         final String uid = mFirebaseUser.getUid();
+        final String profileImage = String.valueOf(mFirebaseUser.getPhotoUrl()).replace("/s96-c/","/s120-c/");
 
         Query query = FirebaseDatabase.getInstance().getReference().child("user").orderByChild("userUid").equalTo(uid);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -164,7 +165,7 @@ public class ActivityLauncher extends AppCompatActivity {
                 if (dataSnapshot.getChildrenCount() < 1) {
 
                     // write retrieved data to database
-                    User newUser = new User(name, email, uid);
+                    User newUser = new User(name, email, uid, profileImage);
                     mDatabaseReference.child(uid).setValue(newUser, new DatabaseReference.CompletionListener() {
                         @Override
                         public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
