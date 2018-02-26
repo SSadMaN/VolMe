@@ -133,8 +133,7 @@ public class ActivityProfile extends AppCompatActivity {
         emailTextView.setText(email);
 
         ImageView profileImage = findViewById(R.id.profile_img);
-
-        Picasso.with(this).load(user.getPhotoUrl()).into(profileImage);
+        Picasso.with(this).load(user.getPhotoUrl().toString().replace("/s96-c/","/s120-c/")).into(profileImage);
 
 
         //Setting listener to change telephone

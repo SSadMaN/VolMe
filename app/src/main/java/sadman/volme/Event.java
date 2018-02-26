@@ -25,23 +25,53 @@ public class Event {
 
     }
 
-    public String getOrganization_name() {return organization_name;}
-    public void setOrganization_name(String organization_name) {this.organization_name = organization_name;}
+    //Getters
+    public String getOrganization_name() {
+        return organization_name;
+    }
 
-    public String getEvent_title() {return event_title;}
-    public void setEvent_title(String event_title) {this.event_title = event_title;}
+    public String getEvent_title() {
+        return event_title;
+    }
 
-    public String getEvent_description() {return event_description;}
-    public void setEvent_description(String event_description) {this.event_description = event_description;}
+    public String getEvent_description() {
+        return event_description;
+    }
 
-    public String getEvent_data() {return event_data;}
-    public void setEvent_data(String event_data) {this.event_data = event_data;}
+    public String getEvent_data() {
+        return event_data;
+    }
 
-    public String getEvent_location() {return event_location;}
-    public void setEvent_location(String event_location) {this.event_location = event_location;}
+    public String getEvent_location() {
+        return event_location;
+    }
 
-    public String getEvent_tag() {return event_tag;}
-    public void setEvent_tag(String event_tag) {this.event_tag = event_tag;}
+    public String getEvent_tag() {
+        return event_tag;
+    }
 
+    //Setters
+    public void setOrganization_name(String organization_name) {
+        this.organization_name = organization_name;
+    }
 
+    public void setEvent_title(String event_title) {
+        this.event_title = event_title;
+    }
+
+    public void setEvent_description(String event_description) {
+        this.event_description = event_description;
+    }
+
+    public void setEvent_data(String event_data) {
+        this.event_data = event_data;
+    }
+
+    public void setEvent_location(String event_location) {
+        this.event_location = event_location;
+    }
+
+    public void setEvent_tag(String event_tag) {
+        this.event_tag = event_tag;
+    }
 }

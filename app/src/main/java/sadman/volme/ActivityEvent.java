@@ -53,7 +53,7 @@ public class ActivityEvent extends AppCompatActivity {
     private CountDownTimer timer;
     private String organizatorTelephone;
     private String organizatorUserUID;
-
+    private String userPhotoUri;
 
 
     @Override
@@ -71,6 +71,7 @@ public class ActivityEvent extends AppCompatActivity {
 
         userUid = user.getUid();
         username = user.getDisplayName();
+        userPhotoUri = user.getPhotoUrl().toString().replace("/s96-c/","/s120-c/");
         //--------------------------------------------------------------------------------
 
         //=======================Initialize references to views=============================
@@ -266,8 +267,8 @@ public class ActivityEvent extends AppCompatActivity {
         {
             @Override
             public void onClick(View view) {
-                User newSubscriber = new User(username, null, userUid);
-                mEventsDatabaseReference.child(eventKey).child("subscribers/" + userUid).push().setValue(newSubscriber, new DatabaseReference.CompletionListener() {
+                User newSubscriber = new User(username, null, userUid, userPhotoUri);
+                mEventsDatabaseReference.child(eventKey).child("subscribers/" + userUid).setValue(newSubscriber, new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
 

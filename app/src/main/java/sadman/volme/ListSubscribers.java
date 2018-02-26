@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by sadman on 13/12/17.
@@ -32,7 +33,7 @@ public class ListSubscribers extends AppCompatActivity {
     private String eventKey;
     private String subscriberUid;
     private String subscriberInListKey;
-    private ImageView sub_imgview;
+    private ImageView subscriberImgageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,11 @@ public class ListSubscribers extends AppCompatActivity {
             @Override
             protected void populateView(View v, User user, int position) {
                 ((TextView) v.findViewById(R.id.user_name_textview)).setText(user.getName());
+                if(user.getUserImageURL() != null) {
+                    //TODO Add placeholder
+                    Picasso.with(ListSubscribers.this).load(user.getUserImageURL())
+                            .into((ImageView) v.findViewById(R.id.user_logo_imageview));
+                }
             }
         };
 
