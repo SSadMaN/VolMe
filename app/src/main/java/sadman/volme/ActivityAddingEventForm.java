@@ -156,9 +156,6 @@ public class ActivityAddingEventForm extends AppCompatActivity {
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
 
-        //TODO what is this
-        spinner.setPrompt("Select your favorite Planet!");
-
     }
 
     private void updateLabel() {

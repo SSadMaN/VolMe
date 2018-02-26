@@ -38,7 +38,7 @@ public class ActivityLauncher extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mFirebaseUser;
     private DatabaseReference mDatabaseReference;
-
+    private static FirebaseDatabase mDatabase;
 
     private GoogleApiClient mGoogleApiClient;
 
@@ -52,11 +52,10 @@ public class ActivityLauncher extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
-
-        //------------------------------Enabling offline capabilities--------------------------
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
 
         //----------------------------------------------------------------------
         if (mFirebaseUser != null) {
